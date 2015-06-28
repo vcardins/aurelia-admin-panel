@@ -4,7 +4,7 @@ export class ChildRouter{
   public router: Router;
   public heading = 'Child Router';
 
-  configureRouter(config, router){
+  configureRouter(config: any, router){
     config.map([
       { route: ['','welcome'], name: 'welcome',      moduleId: './welcome',      nav: true, title:'Welcome' },
       { route: 'flickr',       name: 'flickr',       moduleId: './flickr',       nav: true, title:'Flickr' },

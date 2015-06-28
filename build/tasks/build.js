@@ -8,14 +8,15 @@ var tsLib = require("typescript");
 
 // compiles the typescript files to js
 gulp.task('build-ts', function () {
-  var tsResult = gulp.src(paths.source)
+  var tsResult = gulp.src([paths.source, paths.typings])
     .pipe(plumber())
     .pipe(ts({
       module: "system",
       removeComments: true,
       target: "es5",
       declarationFiles: false,
-      noImplicitAny: true,
+      noExternalResolve: true,
+      emitDecoratorMetadata: true,
       typescript: tsLib // use 1.5 beta
     }));
 

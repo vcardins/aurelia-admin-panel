@@ -6,7 +6,7 @@ import {Router} from "aurelia-router"
 export class App {
   public router: Router;
 
-  configureRouter(config, router: Router){
+  configureRouter(config: any, router: Router){
     config.title = 'Aurelia';
     config.map([
       { route: ['','welcome'], name: 'welcome',      moduleId: './welcome',      nav: true, title:'Welcome' },
