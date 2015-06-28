@@ -2,7 +2,7 @@
 
 This is pretty much a copy of the original skeleton app but with typescript and tsc in most places instead of babel and ES6 js.
 
-So everything from this point on will be the normal documentation for the normal skeleton-navigation project.
+So everything IN THIS DOCUMENT from this point onwards will be the original documentation for the normal skeleton-navigation project.
 
 [![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.io)
 [![Join the chat at https://gitter.im/aurelia/discuss](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/aurelia/discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
