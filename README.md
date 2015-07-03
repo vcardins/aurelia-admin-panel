@@ -2,6 +2,8 @@
 
 This is pretty much a copy of the original skeleton app but with typescript and tsc in most places instead of babel and ES6 js.
 
+There is a known issue with the typescript compilation step where it does not know about the `system` target, this is only in the master release of TS and not public releases yet, so you will get an error when building but the build will still work, just output as `commonjs` modules.
+
 So everything IN THIS DOCUMENT from this point onwards will be the original documentation for the normal skeleton-navigation project.
 
 [![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.io)
