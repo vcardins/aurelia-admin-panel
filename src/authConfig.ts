@@ -1,6 +1,6 @@
 let configForDevelopment = {
 	baseUrl: 'http://localhost:4500/',
-	loginRedirect: '#/flickr',
+	//loginRedirect: '#/flickr',
 	providers: {
 		google: {
 			clientId: '239531826023-ibk10mb9p7ull54j55a61og5lvnjrff6.apps.googleusercontent.com'

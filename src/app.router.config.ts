@@ -15,16 +15,15 @@ export default class {
 		let appRouterConfig = function(config){
 			config.title = 'Aurelia';
 			config.addPipelineStep('authorize', AuthorizeStep); // Add a route filter to the authorize extensibility point.
-
 			config.map([
-				{ route: ['','dashboard'], name: 'dashboard',    moduleId: './dashboard/dashboard',       nav: true, title:'Dashboard' },
+				{ route: ['','home'], 	   name: 'home',    	 moduleId: './home/home',       		  nav: false, title:'Home' },
+				{ route: 'dashboard', 	   name: 'dashboard',    moduleId: './dashboard/dashboard',       nav: true, title:'Dashboard', auth:true },
 				{ route: 'flickr',         name: 'flickr',       moduleId: './flickr/flickr',             nav: true, title:'Flickr', auth:true },
-				{ route: 'child-router',   name: 'child-router', moduleId: './child-router/child-router', nav: true, title:'Child Router' },
+				{ route: 'child-router',   name: 'child-router', moduleId: './child-router/child-router', nav: true, title:'Child Router', auth:true },
 				{ route: 'signup',         name: 'signup', 		 moduleId: './account/signup',       	  nav: false, title:'Signup' },
 				{ route: 'login',          name: 'login', 		 moduleId: './account/login',       	  nav: false, title:'Login' },
 				{ route: 'logout',         name: 'logout', 		 moduleId: './account/logout',       	  nav: false, title:'Logout' },
-				{ route: 'profile',        name: 'profile', 	 moduleId: './account/profile',           nav: false, title:'Profile' },
-				//{ route: 'customer',     name: 'child-router',    moduleId: './customer',       nav: true, title:'CRM', auth:true },
+				{ route: 'profile',        name: 'profile', 	 moduleId: './account/profile',           nav: false, title:'Profile' }
     		]);
 		 };		
 		this.router.configure(appRouterConfig);	

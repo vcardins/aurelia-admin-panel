@@ -10,10 +10,12 @@ export class Login{
 	password:string='';
 	auth:AuthService;
 	public providers:Array<any> = [];
+  	public signupUrl:string;
   
 	constructor(auth:AuthService, private config:BaseConfig){
 		this.auth = auth;
 		if (config.current) {
+			this.signupUrl = config.current.signupUrl;
 			for (let key in config.current.providers) {
 				let p = config.current.providers[key];
 				this.providers.push({name:p.name, title:p.title});				
