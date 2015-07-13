@@ -17,6 +17,7 @@ gulp.task('build-ts', function () {
       declarationFiles: false,
       noExternalResolve: true,
       emitDecoratorMetadata: true,
+      experimentalDecorators: true,
       typescript: tsLib // use 1.5 beta
     }));
 
