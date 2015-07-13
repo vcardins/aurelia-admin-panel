@@ -1,5 +1,7 @@
 import {computedFrom} from 'aurelia-framework';
 import {bindable} from 'aurelia-framework';
+import * as toastr from "toastr";
+import * as moment from "moment";
 
 export class User {
   public firstName = 'John';
@@ -14,7 +16,7 @@ export class User {
   }
 }
 
-export class Welcome{
+export class Dashboard{
   public heading = 'Welcome to the Aurelia Navigation App!';
 
   @bindable
@@ -24,7 +26,7 @@ export class Welcome{
 
   submit(){
     this.previousValue = this.user.fullName;
-    alert(`Welcome, ${this.user.fullName}!`);
+    toastr.success(`Welcome, ${this.user.fullName}!`, 'Welcome');	
   }
 
   canDeactivate() {

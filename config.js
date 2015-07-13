@@ -31,6 +31,9 @@ System.config({
     "core-js": "npm:core-js@0.9.18",
     "css": "github:systemjs/plugin-css@0.1.13",
     "font-awesome": "npm:font-awesome@4.3.0",
+    "jquery": "github:components/jquery@2.1.4",
+    "moment": "github:moment/moment@2.10.3",
+    "toastr": "github:CodeSeven/toastr@2.1.1",
     "github:aurelia/animator-css@0.13.0": {
       "aurelia-templating": "github:aurelia/templating@0.13.2"
     },

@@ -1,19 +1,27 @@
 import 'bootstrap';
 import 'bootstrap/css/bootstrap.css!';
 
-import {Router} from "aurelia-router"
+import {inject} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
+import {AuthorizeStep} from './auth/AuthorizeStep';
+import AppRouterConfig from './app.router.config';
+import HttpClientConfig from './auth/app.httpClient.config';
 
+@inject(Router, AppRouterConfig, HttpClientConfig)
 export class App {
-  public router: Router;
-
-  configureRouter(config: any, router: Router){
-    config.title = 'Aurelia';
-    config.map([
-      { route: ['','welcome'], name: 'welcome',      moduleId: './welcome',      nav: true, title:'Welcome' },
-      { route: 'flickr',       name: 'flickr',       moduleId: './flickr',       nav: true, title:'Flickr' },
-      { route: 'child-router', name: 'child-router', moduleId: './child-router', nav: true, title:'Child Router' }
-    ]);
-
+  private router: Router;
+  private appRouterConfig: AppRouterConfig;
+  private httpClientConfig: HttpClientConfig;
+    
+  constructor(router: Router, appRouterConfig: AppRouterConfig, httpClientConfig:HttpClientConfig){
     this.router = router;
+    this.appRouterConfig = appRouterConfig;
+    this.httpClientConfig = httpClientConfig;   
   }
+
+  activate(){    
+    this.httpClientConfig.configure();
+    this.appRouterConfig.configure();
+  }
+  
 }
