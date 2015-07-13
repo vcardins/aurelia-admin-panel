@@ -1,7 +1,7 @@
 import {computedFrom} from 'aurelia-framework';
 import {bindable} from 'aurelia-framework';
-import * as toastr from "toastr";
-import * as moment from "moment";
+import * as toastr from 'toastr';
+import * as moment from 'moment';
 
 export class User {
   public firstName = 'John';

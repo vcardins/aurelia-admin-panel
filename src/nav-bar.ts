@@ -6,13 +6,13 @@ import {AuthService} from './auth/AuthService';
 @inject(AuthService)
 export class NavBar {
   
-  _isAuthenticated:boolean=false;
-  auth:AuthService;
+  _isAuthenticated:boolean=false;  
+  private auth:AuthService;
   
   @bindable public router = null;
   
   constructor(auth:AuthService){
-  	this.auth = auth;
+  	this.auth = auth;    
   }
   
   get isAuthenticated(){

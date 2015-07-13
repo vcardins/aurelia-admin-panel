@@ -136,14 +136,14 @@ div.au-stagger {
 * Social Buttons
 *********************/
 
-.btn-google-plus {
+.btn-google {
   color: #fff;
   background-color: #dd4b39;
   border: 1px solid #d54331;
 }
 
-.btn-google-plus:hover,
-.btn-google-plus:focus {
+.btn-google:hover,
+.btn-google:focus {
   color: #fff;
   background-color: #cb3927;
 }

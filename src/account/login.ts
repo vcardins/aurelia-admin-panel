@@ -1,16 +1,24 @@
 import {inject} from 'aurelia-framework';
 import {AuthService} from '../auth/AuthService';
+import {IAuthConfig, BaseConfig} from '../auth/baseConfig';
 
-@inject(AuthService)
+@inject(AuthService, BaseConfig)
 export class Login{
 
 	heading:string = 'Login';	
 	email:string='';
 	password:string='';
 	auth:AuthService;
-		
-	constructor(auth:AuthService){
+	public providers:Array<any> = [];
+  
+	constructor(auth:AuthService, private config:BaseConfig){
 		this.auth = auth;
+		if (config.current) {
+			for (let key in config.current.providers) {
+				let p = config.current.providers[key];
+				this.providers.push({name:p.name, title:p.title});				
+			}	      
+	    }
 	};
 
 	login():void{
@@ -22,7 +30,7 @@ export class Login{
 				});
 	};
 	
-	authenticate(name:string):void {
+	public authenticate(name:string):void {
 		return this.auth.authenticate(name, false, null).then((response)=>{
 					console.log("auth response " + response);
 				});

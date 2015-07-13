@@ -97,11 +97,13 @@ var authUtils = {
 	isWindow: function(obj) {
 	  return obj && obj.window === obj;
 	},
-	extend : function(...dst) {
-		return baseExtend(dst, slice.call(arguments, 1), false);
+	extend : function(dst) {
+		let arr = baseExtend(dst, slice.call(arguments, 1), false);
+		return arr;
 	},
-	merge: function merge(...dst) {
-	  return baseExtend(dst, slice.call(arguments, 1), true);
+	merge: function merge(dst) {
+		let arr = baseExtend(dst, slice.call(arguments, 1), true);
+		return arr;
 	},
 	forEach :function(obj:any, iterator:any, context:any = undefined) {
 		var key, length;
