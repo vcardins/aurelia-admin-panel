@@ -51,17 +51,28 @@
   },
   "jspm": {
     "dependencies": {
-      "aurelia-animator-css": "github:aurelia/animator-css@^0.3.0",
-      "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.13.0",
-      "aurelia-dependency-injection": "github:aurelia/dependency-injection@^0.8.1",
+      "aurelia-animator-css": "github:aurelia/animator-css@^0.13.0",
+      "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.14.0",
+      "aurelia-dependency-injection": "github:aurelia/dependency-injection@^0.9.0",
       "aurelia-files": "github:grofit/aurelia-files@^0.0.1",
-      "aurelia-framework": "github:aurelia/framework@^0.12.0",
+      "aurelia-framework": "github:aurelia/framework@^0.13.1",
       "aurelia-generate": "github:grofit/aurelia-generate@^0.0.7",
-      "aurelia-http-client": "github:aurelia/http-client@^0.9.1",
-      "aurelia-router": "github:aurelia/router@^0.9.0",
-      "bootstrap": "github:twbs/bootstrap@^3.3.4",
+      "aurelia-http-client": "github:aurelia/http-client@^0.10.0",
+      "aurelia-router": "github:aurelia/router@^0.10.0",
+      "bootstrap": "github:twbs/bootstrap@^3.3.5",
+      "core-js": "npm:core-js@^0.9.18",
       "css": "github:systemjs/plugin-css@^0.1.11",
       "font-awesome": "npm:font-awesome@^4.3.0"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.6.4",
+      "babel-runtime": "npm:babel-runtime@^5.6.4",
+      "core-js": "npm:core-js@^0.9.18"
+    },
+    "overrides": {
+      "npm:core-js@0.9.18": {
+        "main": "client/shim.min"
+      }
     }
   }
 }
