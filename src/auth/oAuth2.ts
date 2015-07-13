@@ -2,28 +2,42 @@ import {inject} from 'aurelia-framework';
 import authUtils from './authUtils';
 import {Storage} from './storage';
 import {Popup} from './popup';
-import {BaseConfig} from './baseConfig';
-import {IAuthConfig}  from './IAuthConfig';
+import {IOAuthConfig, OAuth} from './OAuth';
+import {IAuthConfig, BaseConfig}  from './baseConfig';
 import {HttpClient} from 'aurelia-http-client';
 
+interface IOAuth2Config  extends IOAuthConfig{
+    clientId:string;
+    url: string;
+    name: string;
+    state: any;
+    scope: any;
+    scopeDelimiter: string;
+    scopePrefix: string;
+    redirectUri: string;
+    popupOptions: any,
+    authorizationEndpoint: string;
+    responseParams: any;
+    requiredUrlParams: any;
+    optionalUrlParams: any;
+    defaultUrlParams: string[];
+    responseType:string;
+}
+
 @inject(HttpClient, Storage, Popup, BaseConfig)
-export class OAuth2 {
-    
-    private http:HttpClient;
-	private auth:Authentication;
-	private storage:Storage;
-	private config:IAuthConfig;
+export class OAuth2 extends OAuth{
 	
+    defaults:IOAuth2Config;
+    
 	constructor(http:HttpClient, storage:Storage, popup:Popup,  config:BaseConfig){
-        this.storage = storage;
-        this.config = config.current;
-        this.popup = popup;
-        this.http = http;
+		super(http, storage, popup, config);
         this.defaults = {
+            clientId:null,
             url: null,
             name: null,
             state: null,
             scope: null,
+            scopePrefix:null,
             scopeDelimiter: null,
             redirectUri: null,
             popupOptions: null,
@@ -36,9 +50,11 @@ export class OAuth2 {
         };
     }
 
-    open(options, userData) {
-        authUtils.extend(this.defaults, options);
-        var stateName = this.defaults.name + '_state';
+    open(options:any, userData:any) {
+        
+        //let args:IArguments = (this.defaults, options);
+		authUtils.extend(this.defaults, options);        
+        let stateName = this.defaults.name + '_state';
 
         if (authUtils.isFunction(this.defaults.state)) {
             this.storage.set(stateName, this.defaults.state());
@@ -46,16 +62,16 @@ export class OAuth2 {
             this.storage.set(stateName, this.defaults.state);
         }
 
-        var url = this.defaults.authorizationEndpoint + '?' + this.buildQueryString();
+        let url = this.defaults.authorizationEndpoint + '?' + this.buildQueryString();
 
-        var openPopup;
+        let openPopup;
             if (this.config.platform === 'mobile') {
               openPopup = this.popup.open(url, this.defaults.name, this.defaults.popupOptions, this.defaults.redirectUri).eventListener(this.defaults.redirectUri);
             } else {
               openPopup = this.popup.open(url, this.defaults.name, this.defaults.popupOptions, this.defaults.redirectUri).pollPopup();
             }
 
-        var self = this;
+        let self = this;
         return openPopup
             .then((oauthData) => {
                 if (self.defaults.responseType === 'token') {
@@ -68,8 +84,8 @@ export class OAuth2 {
             });
     };
 
-    exchangeForToken(oauthData, userData) {
-        var data = authUtils.extend({}, userData, {
+    exchangeForToken(oauthData:any, userData:any) {
+        let data = authUtils.extend({}, userData, {
             code: oauthData.code,
             clientId: this.defaults.clientId,
             redirectUri: this.defaults.redirectUri
@@ -83,9 +99,8 @@ export class OAuth2 {
             data[param] = oauthData[param];
         });
 
-        var exchangeForTokenUrl = this.config.baseUrl ? authUtils.joinUrl(this.config.baseUrl, this.defaults.url) : this.defaults.url;
+        let exchangeForTokenUrl = this.config.baseUrl ? authUtils.joinUrl(this.config.baseUrl, this.defaults.url) : this.defaults.url;
       
-
             return this.http.createRequest(exchangeForTokenUrl)
                 .asPost()
                 .withContent(data)
@@ -99,18 +114,18 @@ export class OAuth2 {
                     throw err;
                 });
     };
-
+      
     buildQueryString() {
-        var keyValuePairs = [];
-        var urlParams = ['defaultUrlParams', 'requiredUrlParams', 'optionalUrlParams'];
+        let keyValuePairs = [];
+        let urlParams = ['defaultUrlParams', 'requiredUrlParams', 'optionalUrlParams'];
         authUtils.forEach(urlParams, (params) => {
 
             authUtils.forEach(this.defaults[params], (paramName) => {
-                var camelizedName = authUtils.camelCase(paramName);
-                var paramValue = authUtils.isFunction(this.defaults[paramName]) ? this.defaults[paramName]() : this.defaults[camelizedName];
+                let camelizedName = authUtils.camelCase(paramName);
+                let paramValue = authUtils.isFunction(this.defaults[paramName]) ? this.defaults[paramName]() : this.defaults[camelizedName];
 
                 if (paramName === 'state') {
-                    var stateName = this.defaults.name + '_state';
+                    let stateName = this.defaults.name + '_state';
                     paramValue = encodeURIComponent(this.storage.get(stateName));
                 }
 

@@ -127,7 +127,10 @@ div.au-stagger {
   }
 }
 
-
+.container .panel {
+  margin-top:20px;
+  padding:0;
+}
 
 /*********************
 * Social Buttons

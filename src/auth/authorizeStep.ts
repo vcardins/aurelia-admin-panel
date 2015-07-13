@@ -6,12 +6,14 @@ import {Router} from 'aurelia-router';
 @inject(Authentication)
 export class AuthorizeStep {
   
+  private auth:Authentication;
+  
   constructor(auth:Authentication){
     this.auth = auth;
   }
   run(routingContext, next) {
     if (routingContext.nextInstructions.some(i => i.config.auth)) {
-      var isLoggedIn =  this.auth.isAuthenticated(); 
+      let isLoggedIn =  this.auth.isAuthenticated(); 
       if (!isLoggedIn) {
         return next.cancel(new Redirect('login'));
       }

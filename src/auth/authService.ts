@@ -24,13 +24,13 @@ export class AuthService  {
 		this.config = config.current;
 	};
 	
-	private request(route:string, httpRequestType:string, data:Object = undefined, headers:Object = undefined):Promise<any> {      
-      data = data || {};
-      let req = this._getConfigRequest(route, httpRequestType, data, headers);           
-      return window.fetch(req.url, {method: req.method, headers: req.headers, body: req.data })
-                .then(status)
-                .then(json);
-  	}
+	// private request(route:string, httpRequestType:string, data:Object = undefined, headers:Object = undefined):Promise<any> {      
+    //   data = data || {};
+    //   let req = this._getConfigRequest(route, httpRequestType, data, headers);           
+    //   return window.fetch(req.url, {method: req.method, headers: req.headers, body: req.data })
+    //             .then(status)
+    //             .then(json);
+  	// }
   
 	getMe(){
 		var profileUrl = this.auth.getProfileUrl();
@@ -67,14 +67,10 @@ export class AuthService  {
 			});
 	};
 
-	login(email, password){
+	login(email:string, password:string){
 
 		var loginUrl = this.auth.getLoginUrl();
-		return this.http.createRequest(loginUrl)
-		.asPost()
-		.withContent({'email': email, 'password':password})
-		.send()
-		.then(response => {
+		return this.http.post(loginUrl, {'email': email, 'password':password}).then(response => {
 			this.auth.setToken(response);
 			console.log("authservice login ok ");
 			return response;
@@ -86,11 +82,10 @@ export class AuthService  {
 
 	};
 
-	logout(redirectUri){
+	logout(redirectUri:string){
 		console.log("log out service");
 		return new Promise((resolve, reject)=>{
-			this.auth.logout(redirectUri)
-			.then(response=>{
+			this.auth.logout(redirectUri).then(response=>{
 
 			})
 			.catch(err=>{
@@ -100,15 +95,13 @@ export class AuthService  {
 		});
 	};
 
-
-	authenticate(name:string, redirect:string, userData:any) {
+	authenticate(name:string, redirect:any, userData:any) {
 		var provider = this.oAuth2;
 		if (this.config.providers[name].type === '1.0'){
 			provider = this.oAuth1;
 		};
 
-		return provider.open(this.config.providers[name], userData || {})
-		.then((response) => {
+		return provider.open(this.config.providers[name], userData || {}).then((response) => {
 			this.auth.setToken(response, redirect);
 			return response;
 		})
@@ -120,26 +113,19 @@ export class AuthService  {
 
 	};
 	
-	unlink(provider) {
-		var unlinkUrl =  this.config.baseUrl 
-		? authUtils.joinUrl(this.config.baseUrl, this.config.unlinkUrl) : this.config.unlinkUrl;
+	unlink(provider:string) {
+		var unlinkUrl =  this.config.baseUrl ? 
+						 authUtils.joinUrl(this.config.baseUrl, this.config.unlinkUrl) : 
+						 this.config.unlinkUrl;
 
 		if (this.config.unlinkMethod === 'get') {
-			return this.http.createRequest(unlinkUrl + provider)
-                .asGet()
-                .send()
-                .then(response => {
+			return this.http.get(unlinkUrl + provider).then(response => {
                     return response;
                 });
 		}
 		else if (this.config.unlinkMethod === 'post') {
 			//TODO 
-			//return $http.post(unlinkUrl, provider);
-			return this.http.createRequest(unlinkUrl)
-                .asPost()
-                .withContent(provider)
-                .send()
-                .then(response => {
+			return this.http.post(unlinkUrl, provider).then(response => {
                     return response;
                 });
 		}

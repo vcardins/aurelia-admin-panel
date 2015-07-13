@@ -1,83 +1,49 @@
 import {inject} from 'aurelia-framework';
-import {IAuthConfig} from './IAuthConfig';
-import {BaseConfig} from './baseConfig';
+import {IAuthConfig, BaseConfig} from './baseConfig';
+
+interface IStorage {
+	getItem(key:string): any;
+	setItem(key:string, value:any): void;
+	removeItem(key:string): void;
+}
 
 @inject(BaseConfig)
 export class Storage{
 	
 	private config:IAuthConfig;
+	private isStorageAvailable:boolean = true;
+	private storage:IStorage;
 	
-	constructor(private cfg:BaseConfig){
-		this.config = cfg.current;
-	}
-
-	get(key){
+	constructor(private baseConfig:BaseConfig){
+		this.config = baseConfig.current;
 		switch (this.config.storage) {
 			case 'localStorage':
-			if ('localStorage' in window && window['localStorage'] !== null) {
-				return  localStorage.getItem(key); 
-			} else {
-				console.warn('Warning: Local Storage is disabled or unavailable');
-				return undefined;
-			}
-			break;
-
+				this.storage = window.localStorage;
+				if (!('localStorage' in window && window['localStorage'] !== null)) {		
+					this.isStorageAvailable = false;	
+					console.warn('Warning: Local Storage is disabled or unavailable');
+				}
+				break;
 			case 'sessionStorage':
-			if ('sessionStorage' in window && window['sessionStorage'] !== null) {
-				return  sessionStorage.getItem(key); 
-			} else {
-				console.warn('Warning: Session Storage is disabled or unavailable.  will not work correctly.');
-				return undefined;
-			}
-			break;
+				this.storage = window.sessionStorage;
+				if (!('sessionStorage' in window && window['sessionStorage'] !== null)) {			
+					console.warn('Warning: Session Storage is disabled or unavailable. Will not work correctly.');
+					this.isStorageAvailable = false;
+				}
+				break;
 		}
 	}
 
-	set(key, value){
-		switch (this.config.storage) {
-			case 'localStorage':
-			if ('localStorage' in window && window['localStorage'] !== null) {
-				return localStorage.setItem(key, value);
-
-			} else {
-				console.warn('Warning: Local Storage is disabled or unavailable.  will not work correctly.');
-				return undefined;
-			}
-			break;
-
-			case 'sessionStorage':
-			if ('sessionStorage' in window && window['sessionStorage'] !== null) {
-				return sessionStorage.setItem(key, value);
-			} else {
-				console.warn('Warning: Session Storage is disabled or unavailable.  will not work correctly.');
-				return undefined;
-			}
-			break;
-		}
+	get(key:string){
+		return this.storage.getItem(key);
 	}
 
-	remove(key){
-		switch (this.config.storage) {
-			case 'localStorage':
-			if ('localStorage' in window && window['localStorage'] !== null) {
-				return localStorage.removeItem(key);
-			} else {
-				console.warn('Warning: Local Storage is disabled or unavailable.  will not work correctly.');
-				return undefined;
-			}
-			break;
-
-			case 'sessionStorage':
-			if ('sessionStorage' in window && window['sessionStorage'] !== null) {
-				return  sessionStorage.removeItem(key);
-
-			} else {
-				console.warn('Warning: Session Storage is disabled or unavailable.  will not work correctly.');
-				return undefined;
-			}
-			break;
-		}
+	set(key:string, value:any){
+		return this.storage.setItem(key, value);
 	}
 
+	remove(key:string){
+		return this.storage.removeItem(key);
+	}
 
 }

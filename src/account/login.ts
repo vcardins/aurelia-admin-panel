@@ -13,21 +13,18 @@ export class Login{
 		this.auth = auth;
 	};
 
-	login(){
-		return this.auth.login(this.email, this.password)
-		.then(response=>{
-			console.log("success logged " + response);
-		})
-		.catch(err=>{
-			console.log("Login failure", err.response);
-		});
+	login():void{
+		return this.auth.login(this.email, this.password).then(response=>{
+					console.log("success logged " + response);
+				})
+				.catch(err=>{
+					console.log("Login failure", err.response);
+				});
 	};
 	
-	authenticate(name:string){
-		return this.auth.authenticate(name, false, null)
-		.then((response)=>{
-			console.log("auth response " + response);
-		});
-
+	authenticate(name:string):void {
+		return this.auth.authenticate(name, false, null).then((response)=>{
+					console.log("auth response " + response);
+				});
 	}
 }

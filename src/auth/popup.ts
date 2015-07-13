@@ -1,13 +1,15 @@
 import authUtils from './authUtils';
-import {BaseConfig}  from './baseConfig';
-import {IAuthConfig}  from './IAuthConfig';
+import {IAuthConfig, BaseConfig}  from './baseConfig';
 import {inject} from 'aurelia-framework';
 
 @inject(BaseConfig)
 export class Popup{
 
 	private config:IAuthConfig;
-	
+	public popupWindow:Window = null;
+  private polling:any = null;
+  private url:string = '';
+  
   constructor(config:BaseConfig){
     this.config = config.current;
     this.popupWindow = null;
@@ -17,7 +19,7 @@ export class Popup{
 
   open(url, windowName, options, redirectUri){
     this.url = url;
-    var optionsString = this.stringifyOptions(this.prepareOptions(options || {}));
+    let optionsString = this.stringifyOptions(this.prepareOptions(options || {}));
 
     this.popupWindow = window.open(url, windowName, optionsString);
     
@@ -29,26 +31,28 @@ export class Popup{
   };
 
   eventListener(redirectUri) {
-    var self = this;
-    var promise =  new Promise((resolve,reject)=>{
-      self.popupWindow.addEventListener('loadstart', (event)=> {
-        if (event.url.indexOf(redirectUri) !== 0) {
+    let self = this;
+    let promise =  new Promise((resolve,reject)=>{
+      self.popupWindow.addEventListener('loadstart', (event)=> {        
+        
+        let uri:string = (<any>event).url;
+        if (uri.indexOf(redirectUri) !== 0) {
           return;
         }
 
-        var parser = document.createElement('a');
-        parser.href = event.url;
+        let parser = document.createElement('a');
+        parser.href = uri;
 
         if (parser.search || parser.hash) {
-          var queryParams = parser.search.substring(1).replace(/\/$/, '');
-          var hashParams = parser.hash.substring(1).replace(/\/$/, '');
-          var hash = authUtils.parseQueryString(hashParams);
-          var qs = authUtils.parseQueryString(queryParams);
+          let queryParams = parser.search.substring(1).replace(/\/$/, '');
+          let hashParams = parser.hash.substring(1).replace(/\/$/, '');
+          let hash = authUtils.parseQueryString(hashParams);
+          let qs = authUtils.parseQueryString(queryParams);
 
           authUtils.extend(qs, hash);
 
-          if (qs.error) {
-            reject({ error: qs.error });
+          if (qs.hasOwnProperty('error')) {
+            reject({ error: (<ErrorEvent>qs).error });
           } else {
             resolve(qs);
           }
@@ -57,44 +61,44 @@ export class Popup{
         }
       });
 
-      popupWindow.addEventListener('exit', () => {
+      self.popupWindow.addEventListener('exit', () => {
         reject({ data: 'Provider Popup was closed' });
       });
 
-      popupWindow.addEventListener('loaderror', () => {
-        deferred.reject({ data: 'Authorization Failed' });
+      self.popupWindow.addEventListener('loaderror', () => {
+        reject({ data: 'Authorization Failed' });
       });
     });
-return promise;
+  return promise;
 };
 
-pollPopup(){
-  var self = this;
-  var promise =  new Promise((resolve,reject)=>{
-    this.polling = setInterval(()=> {
-      try {
-          var documentOrigin = document.location.host;
-          var popupWindowOrigin = self.popupWindow.location.host;
-
- if (popupWindowOrigin === documentOrigin && (self.popupWindow.location.search || self.popupWindow.location.hash)) {
-        var queryParams = self.popupWindow.location.search.substring(1).replace(/\/$/, '');
-        var hashParams = self.popupWindow.location.hash.substring(1).replace(/[\/$]/, '');
-        var hash = authUtils.parseQueryString(hashParams);
-        var qs = authUtils.parseQueryString(queryParams);
-
-        authUtils.extend(qs, hash);
-
-        if (qs.error) {
-          reject({ error: qs.error });
-        } else {
-          resolve(qs);
-        }
-
-        self.popupWindow.close();
-        clearInterval(self.polling);
-          }
+  pollPopup(){
+    let self = this;
+    let promise =  new Promise((resolve,reject)=>{
+      this.polling = setInterval(()=> {
+        try {
+            let documentOrigin = document.location.host;
+            let popupWindowOrigin = self.popupWindow.location.host;
+  
+           if (popupWindowOrigin === documentOrigin && (self.popupWindow.location.search || self.popupWindow.location.hash)) {
+                  let queryParams = self.popupWindow.location.search.substring(1).replace(/\/$/, '');
+                  let hashParams = self.popupWindow.location.hash.substring(1).replace(/[\/$]/, '');
+                  let hash = authUtils.parseQueryString(hashParams);
+                  let qs = authUtils.parseQueryString(queryParams);
+          
+                  authUtils.extend(qs, hash);
+          
+                  if (qs.hasOwnProperty('error')) {
+                    reject({ error: (<ErrorEvent>qs).error });
+                  } else {
+                    resolve(qs);
+                  }
+          
+                  self.popupWindow.close();
+                  clearInterval(self.polling);
+            }
         } catch (error) {}
-
+  
         if (!self.popupWindow) {
           clearInterval(self.polling);
           reject({ data: 'Provider Popup Blocked' });
@@ -103,29 +107,27 @@ pollPopup(){
           reject({ data: 'Problem poll popup' });
         }
       }, 35);
+    });
+    
+    return promise;
+  };
 
-
-}
-);
-return promise;
-};
-
-prepareOptions(options) {
-  var width = options.width || 500;
-  var height = options.height || 500;
-  return authUtils.extend({
-    width: width,
-    height: height,
-    left: window.screenX + ((window.outerWidth - width) / 2),
-    top: window.screenY + ((window.outerHeight - height) / 2.5)
-  }, options);
-};
-
-stringifyOptions(options) {
-  var parts = [];
-  authUtils.forEach(options, function(value, key) {
-    parts.push(key + '=' + value);
-  });
-  return parts.join(',');
-};
+  prepareOptions(options) {
+    let width = options.width || 500;
+    let height = options.height || 500;
+    return authUtils.extend({
+      width: width,
+      height: height,
+      left: window.screenX + ((window.outerWidth - width) / 2),
+      top: window.screenY + ((window.outerHeight - height) / 2.5)
+    }, options);
+  };
+  
+  stringifyOptions(options) {
+    let parts = [];
+    authUtils.forEach(options, function(value, key) {
+      parts.push(key + '=' + value);
+    });
+    return parts.join(',');
+  };
 }

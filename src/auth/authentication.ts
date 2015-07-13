@@ -16,19 +16,19 @@ export class Authentication{
     this.tokenName = this.config.tokenPrefix ? `${this.config.tokenPrefix}_${this.config.tokenName}` : this.config.tokenName;                        
   }
 
-  getLoginUrl() {
+  getLoginUrl():string {
     return  this.config.baseUrl ? authUtils.joinUrl(this.config.baseUrl, this.config.loginUrl) : this.config.loginUrl;
   };
   
-  getSignupUrl(){
+  getSignupUrl():string {
     return  this.config.baseUrl ? authUtils.joinUrl(this.config.baseUrl, this.config.signupUrl) : this.config.signupUrl;
   };
   
-  getProfileUrl() {
+  getProfileUrl():string {
     return  this.config.baseUrl ? authUtils.joinUrl(this.config.baseUrl, this.config.profileUrl) : this.config.profileUrl;
   };
   
-  getToken() {
+  getToken():string {
     return this.storage.get(this.tokenName);
   };
   
@@ -38,11 +38,11 @@ export class Authentication{
     if (token && token.split('.').length === 3) {
       var base64Url = token.split('.')[1];
       var base64 = base64Url.replace('-', '+').replace('_', '/');
-      return JSON.parse(decodeURIComponent(escape(window.atob(base64))));
+      return JSON.parse(decodeURIComponent(encodeURI(window.atob(base64))));
     }
   };
 
-  setToken(response, redirect) {
+  setToken(response:any, redirect:any = undefined) {
   
     var tokenName = this.tokenName;
     var accessToken = response && response.access_token;
@@ -74,35 +74,32 @@ export class Authentication{
     this.storage.set(tokenName, token);
   
     if (this.config.loginRedirect && !redirect) {
-      window.location.href =this.config.loginRedirect;
+      window.location.href = this.config.loginRedirect;
     } else if (redirect && authUtils.isString(redirect)) {
-      window.location.href =window.encodeURI(redirect);
+      window.location.href = encodeURI(redirect);
     }
   };
 
-  removeToken(){
+  removeToken():void{
     this.storage.remove(this.tokenName);
   }
   
-  isAuthenticated() {
-    var token = this.storage.get(this.tokenName);
-  
-    if (token) {
-      if (token.split('.').length === 3) {
-        var base64Url = token.split('.')[1];
-        var base64 = base64Url.replace('-', '+').replace('_', '/');
-        var exp = JSON.parse(window.atob(base64)).exp;
-        if (exp) {
-          return Math.round(new Date().getTime() / 1000) <= exp;
-        }
-        return true;
-      }
-      return true;
+  isAuthenticated():boolean {
+    var token = this.storage.get(this.tokenName);  
+    if (!token) { return false; }    
+    if (token.split('.').length !== 3) { return true; }
+    
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace('-', '+').replace('_', '/');
+    var exp = JSON.parse(window.atob(base64)).exp;
+    if (exp) {
+      return Math.round(new Date().getTime() / 1000) <= exp;
     }
-    return false;
+    return true;   
+     
   };
 
-  logout(redirect) {
+  logout(redirect:string) {
     var tokenName = this.tokenName;
     return new Promise((resolve,reject)=>{
       this.storage.remove(tokenName);

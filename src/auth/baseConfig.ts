@@ -46,7 +46,7 @@ export class BaseConfig{
   
   private _current:IAuthConfig;
   
-  configure(incomingConfig:any){
+  configure(incomingConfig:any){    
     authUtils.merge(this._current, incomingConfig);
   };
   
