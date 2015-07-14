@@ -12,23 +12,23 @@ function setHashKey(obj, h) {
 function baseExtend(dst, objs, deep) {
 	var h = dst.$$hashKey;
 
-	for (var i = 0, ii = objs.length; i < ii; ++i) {
-		var obj = objs[i];
+	for (let i = 0, ii = objs.length; i < ii; ++i) {
+		let obj = objs[i];
 		if (!authUtils.isObject(obj) && !authUtils.isFunction(obj)) continue;
-		var keys = Object.keys(obj);
-		for (var j = 0, jj = keys.length; j < jj; j++) {
-			var key = keys[j];
-			var src = obj[key];
+		let keys = Object.keys(obj);
+		for (let j = 0, jj = keys.length; j < jj; j++) {
+			let key = keys[j], src = obj[key];
 
 			if (deep && authUtils.isObject(src)) {
-				if (!authUtils.isObject(dst[key])) dst[key] = authUtils.isArray(src) ? [] : {};
+				if (!authUtils.isObject(dst[key])) { 
+					dst[key] = authUtils.isArray(src) ? [] : {} 
+				};
 				baseExtend(dst[key], [src], true);
 			} else {
 				dst[key] = src;
 			}
 		}
 	}
-
 	setHashKey(dst, h);
 	return dst;
 };
@@ -100,9 +100,11 @@ var authUtils = {
 	extend : function(dst) {
 		let arr = baseExtend(dst, slice.call(arguments, 1), false);
 		return arr;
+		
 	},
 	merge: function merge(dst) {
 		let arr = baseExtend(dst, slice.call(arguments, 1), true);
+		//let arr = Object.assign({}, dst, slice.call(arguments, 1));
 		return arr;
 	},
 	forEach :function(obj:any, iterator:any, context:any = undefined) {

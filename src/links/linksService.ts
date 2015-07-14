@@ -3,6 +3,7 @@ import {DataService} from '../common/data/DataService'
 import {HttpClient} from 'aurelia-http-client';
 import {BaseConfig} from '../auth/baseConfig';
 import {autoinject} from 'aurelia-framework';
+import {Aurelia} from 'aurelia-framework';
 
 export class LinkModel {
   id:number;
@@ -23,8 +24,10 @@ export class LinkModel {
 export class LinkService extends DataService  {  
   
   url:string = 'links';
-  constructor(httpClient:HttpClient, private baseConfig:BaseConfig) {        
+  constructor(httpClient:HttpClient, private baseConfig:BaseConfig, aurelia:Aurelia) {        
     super(httpClient, baseConfig);         
+    
+    //var cfg = aurelia.container.get(BaseConfig);	
     //this.isLocal = true;
   }
 

@@ -93,7 +93,7 @@ export class DataService implements IDataService {
           configRequest.headers = { 'Content-Type': undefined };
       }
       if (httpRequestType === 'GET' || httpRequestType === 'DELETE') {
-          Object.assign({}, configRequest.params, data);
+          Object.assign(configRequest.params, configRequest.params, data);
       } else {
           if (configRequest.headers['Content-Type'] === this._defaultContentType) {
               configRequest.data = this._serialize(data, '');

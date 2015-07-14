@@ -1,6 +1,7 @@
 import {AuthService} from '../auth/AuthService';
 import {UserProfile} from './userProfile';
 import {inject} from 'aurelia-framework';
+import * as toastr from 'toastr';
 
 @inject(AuthService)
 
@@ -23,10 +24,10 @@ export class Profile{
 	
 	update(){
 		return this.auth.updateMe(this.profile).then(response=>{
-			console.log("success logged ", response);
+			toastr.success('Profile successfully updated');
 		})
 		.catch(err=>{
-			console.log("Login failure", err);
+			toastr.error(err.message);
 		});
 	};
 	

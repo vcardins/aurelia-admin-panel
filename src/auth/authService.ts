@@ -28,13 +28,17 @@ export class AuthService  {
 		let profileUrl = this.auth.getProfileUrl();
 		return this.http.get(profileUrl).then(response => {
 			return response.content;
+		}).catch(err => {
+			throw JSON.parse(err.response);
 		});
 	};
 
 	updateMe(content:any){
 		let profileUrl = this.auth.getProfileUrl();
 		return this.http.put(profileUrl, content).then(response => {
-			return response.content;
+			return response;
+		}).catch(err => {
+			throw JSON.parse(err.response);
 		});
 	};
 
@@ -57,6 +61,8 @@ export class AuthService  {
 					window.location.href = this.config.signupRedirect;
 				}
 				return response;
+			}).catch(err => {
+				throw JSON.parse(err.response);
 			});
 	};
 
@@ -68,8 +74,7 @@ export class AuthService  {
 			return response;
 		})
 		.catch(err => {
-			console.log("error :" + err.content.message);
-			throw err;
+			throw JSON.parse(err.response);
 		});
 
 	};
@@ -78,9 +83,8 @@ export class AuthService  {
 		return new Promise((resolve, reject)=>{
 			this.auth.logout(redirectUri).then(response=>{
 
-			})
-			.catch(err=>{
-
+			}).catch(err => {
+				throw JSON.parse(err.response);
 			});
 		});
 	};
@@ -90,7 +94,6 @@ export class AuthService  {
 		if (this.config.providers[name].type === '1.0'){
 			provider = this.oAuth1;
 		};
-
 		return provider.open(this.config.providers[name], userData || {}).then((response) => {
 			this.auth.setToken(response, redirect);
 			return response;
@@ -99,8 +102,6 @@ export class AuthService  {
 			console.log("auth problem");
 			throw error;
 		});
-
-
 	};
 	
 	unlink(provider:string) {
@@ -116,8 +117,10 @@ export class AuthService  {
 		else if (this.config.unlinkMethod === 'post') {
 			//TODO 
 			return this.http.post(unlinkUrl, provider).then(response => {
-                    return response;
-                });
+	                    return response;
+	                }).catch(err => {
+						throw JSON.parse(err.response);
+					});
 		}
 	};
 }

@@ -1,6 +1,7 @@
 import {inject} from 'aurelia-framework';
 import {AuthService} from '../auth/AuthService';
 import {IAuthConfig, BaseConfig} from '../auth/baseConfig';
+import * as toastr from 'toastr';
 
 @inject(AuthService, BaseConfig)
 export class Login{
@@ -25,10 +26,10 @@ export class Login{
 
 	login():void{
 		return this.auth.login(this.email, this.password).then(response=>{
-					console.log("success logged " + response);
+					console.log("Success logged ", response);
 				})
 				.catch(err=>{
-					console.log("Login failure", err.response);
+					toastr.error(err.message, 'Login Failed');	
 				});
 	};
 	
