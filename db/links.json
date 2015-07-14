@@ -1,0 +1,106 @@
+[
+      {
+            "id": 1,
+            "title": "Intro to Angular 2",
+            "url": "https://angular2-intro.firebaseapp.com/",
+            "source": "David East",
+            "category":"Introduction"
+      },
+      {
+            "id": 2,
+            "title": "Official Angular 2 Design Docs",
+            "url": "https://drive.google.com/drive/folders/0B7Ovm8bUYiUDR29iSkEyMk5pVUk",
+            "source": "Google",
+            "category":"Introduction"
+      },
+      {
+            "id": 3,
+            "title": "Official Angular 2 - 5 min quickstart",
+            "url": "https://angular.io/docs/js/latest/quickstart.html",
+            "source": "James",
+            "category":"Introduction"
+      },
+      {
+            "id": 4,
+            "title": "Angular2 - First Impressions",
+            "url": "http://blog.mgechev.com/2015/04/06/angular2-first-impressions/",
+            "source": "Minko Gechev",
+            "category":"Introduction"
+      },
+      {
+            "id": 5,
+            "title": "Angular 2 Series: Introduction",
+            "url": "http://blog.ionic.io/angular-2-series-introduction/",
+            "source": "Ionic Team",
+            "category":"Introduction"
+      },
+      {
+            "id": 6,
+            "title": "Video: Keynote on Angular 2",
+            "url": "https://www.youtube.com/watch?v=-dMBcqwvYA0",
+            "source": "Misko Hevery, Rado Kirov",
+            "category":"Introduction"
+      },
+      {
+            "id": 7,
+            "title": "AngularJS 2 Status and Preview",
+            "url": "http://ng-learn.org/2014/03/AngularJS-2-Status-Preview/",
+            "source": "Santiago Esteva",
+            "category":"Introduction"
+      },
+      {
+            "id": 8,
+            "title": "All About Angular 2.0",
+            "url": "http://eisenbergeffect.bluespire.com/all-about-angular-2-0/",
+            "source": "Rob Eisenberg",
+            "category":"Introduction"
+      },
+      {
+            "id": 9,
+            "title": "Getting Started with Angular 2.0 (Great line by line introduction)",
+            "url": "http://thejackalofjavascript.com/getting-started-with-angular-2-0/",
+            "source": "Arvind Ravulavaru",
+            "category":"Introduction"
+      },
+      {
+            "id": 10,
+            "title": "The awesomeness of Angular 2",
+            "url": "https://speakerdeck.com/cironunes/the-awesomeness-of-angular-2",
+            "source": "Ciro Nunes",
+            "category":"Introduction"
+      },
+      {
+            "id": 11,
+            "title": "The main goals of Angular 2",
+            "url": "http://blog.jhades.org/introduction-to-angular2-the-main-goals/",
+            "source": "",
+            "category":"Introduction"
+      },
+      {
+            "id": 12,
+            "title": "Video: ANGULARJS 2.0 features and beyond",
+            "url": "https://www.youtube.com/watch?v=odY7fUjI1ZU",
+            "source": "Rob Eisenberg",
+            "category":"Introduction"
+      },
+      
+      { "id": 13, "url":"http://victorsavkin.com/post/114168430846/two-phases-of-angular-2-applications", "title":"Two Phases of Angular 2 Applications (Victor Savkin)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 14, "url":"http://angularjs.blogspot.co.uk/2015/03/forms-in-angular-2.html", "title":"Forms in Angular 2 (Victor Savkin)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 15, "url":"http://victorsavkin.com/post/119943127151/angular-2-template-syntax", "title":"Angular 2 Template Syntax (Victor Savkin)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 16, "url":"https://ngforms.firebaseapp.com/#/", "title":"Angular 2 Forms (David East)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 17, "url":"http://victorsavkin.com/post/110170125256/change-detection-in-angular-2", "title":"Change Detection in Angular 2 (Victor Savkin)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 18, "url":"http://victorsavkin.com/post/108837493941/better-support-for-functional-programming-in", "title":"Functional Programming in Angular 2 (Victor Savkin)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 19, "url":"http://victorsavkin.com/post/102965317996/angular-2-bits-unified-dependency-injection", "title":"Unified Dependency Injection (Victor Savkin)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 20, "url":"http://victorsavkin.com/post/118372404541/the-core-concepts-of-angular-2", "title":"The Core Concepts of Angular 2", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 21, "url":"https://egghead.io/lessons/angularjs-angular-2-template-syntax", "title":"Angular 2 Template Syntax (John Lindquist)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 22, "url":"https://egghead.io/lessons/angularjs-angular-2-binding-es5", "title":"Angular 2 - Binding (es5)(John Lindquist)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 23, "url":"https://egghead.io/lessons/angularjs-angular-2-hello-world-es5", "title":"Angular 2 - Hello World (es5)(John Lindquist)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 24, "url":"https://www.youtube.com/watch?v=3IqtmUscE_U", "title":"Video: Zone.JS (Brian Ford)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 25, "url":"http://blog.ionic.io/angular-2-series-components/", "title":"Angular 2 Series: Components (Ionic Team)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 26, "url":"https://www.youtube.com/watch?v=sfV0ApyN5fM", "title":"Video: Angular Router (Brian Ford)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 27, "url":"http://blog.thoughtram.io/angular/2015/05/03/the-difference-between-annotations-and-decorators.html", "title":"The difference between Annotations and Decorators (Pascal Precht)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 28, "url":"https://angularu.com/Video/2015sf/misko-hevery-talks-about-databinding-in-angular-2", "title":"Video: Data binding in Angular 2 (Misko Hevery)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 29, "url":"http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html", "title":"Dependency Injection in Angular 2 (Pascal Precht)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 30, "url":"https://angularu.com/VideoSession/2015sf/angular-2-server-rendering", "title":"Angular 2 Server Rendering (gdi2290 and Jeff Whelpley)", "category":"Angular 2 Explained", "source":"source" },
+      { "id": 31, "url":"http://blog.thoughtram.io/angular/2015/06/29/shadow-dom-strategies-in-angular2.html", "title":"Shadow DOM Strategies in Angular 2", "category":"Angular 2 Explained", "source":"source" }
+]

@@ -3,6 +3,7 @@
 
 @import (inline) "../jspm_packages/npm/font-awesome@4.3.0/css/font-awesome.css";
 @import (inline) "../jspm_packages/github/CodeSeven/toastr@2.1.1/toastr.css";
+
 @font-face {
   font-family: 'FontAwesome';
   src: ~"url('@{fontAwesomePath}/fontawesome-webfont.eot')";
@@ -70,6 +71,61 @@ section {
     text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
     text-transform: uppercase;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+}
+
+
+.flex-grid {
+  display: flex;
+  &> div {
+    flex: 1;
+    margin: 0 20px 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background: #fff;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  h2 {
+    margin: -15px -15px 15px -15px;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ddd;
+    background: #fafafa;
+  }
+  li {
+    position: relative;
+    margin: 0 0 10px;
+    padding: 0 0 0 25px;
+    &:before {
+      content: '\f00c';
+      font: normal 16px fontawesome;
+      top: 0;
+      left: 0;
+      color: #999;
+    }
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    th {
+      padding: 10px;
+      font-size: 14px 
+    }
+    tr:nth-child(odd) {
+      background: #f9f9f9;
+    }
+    tr:nth-child(even) {
+      background: #fff;
+    }
+    td {
+      padding: 10px;
+      font-size: 12px;
+      border: 1px solid #ddd;
+    }
   }
 }
 

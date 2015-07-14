@@ -23,26 +23,19 @@ export class AuthService  {
 		this.oAuth2 = oAuth2;
 		this.config = config.current;
 	};
-	
-	// private request(route:string, httpRequestType:string, data:Object = undefined, headers:Object = undefined):Promise<any> {      
-    //   data = data || {};
-    //   let req = this._getConfigRequest(route, httpRequestType, data, headers);           
-    //   return window.fetch(req.url, {method: req.method, headers: req.headers, body: req.data })
-    //             .then(status)
-    //             .then(json);
-  	// }
   
 	getMe(){
-		var profileUrl = this.auth.getProfileUrl();
+		let profileUrl = this.auth.getProfileUrl();
 		return this.http.get(profileUrl).then(response => {
 			return response.content;
 		});
 	};
 
 	updateMe(content:any){
-		var profileUrl = this.auth.getProfileUrl();
-		return this.http.put(profileUrl, content).then(status)
-                .then(json);
+		let profileUrl = this.auth.getProfileUrl();
+		return this.http.put(profileUrl, content).then(response => {
+			return response.content;
+		});
 	};
 
 	isAuthenticated(){
@@ -50,8 +43,8 @@ export class AuthService  {
 	};
 
 	signup(displayName, email, password){
-		var signupUrl = this.auth.getSignupUrl();		
-		var content;
+		let signupUrl = this.auth.getSignupUrl();		
+		let content;
 		if (typeof arguments[0] === 'object') {
 			content = arguments[0];
 		} else {
@@ -69,10 +62,9 @@ export class AuthService  {
 
 	login(email:string, password:string){
 
-		var loginUrl = this.auth.getLoginUrl();
+		let loginUrl = this.auth.getLoginUrl();
 		return this.http.post(loginUrl, {'email': email, 'password':password}).then(response => {
 			this.auth.setToken(response);
-			console.log("authservice login ok ");
 			return response;
 		})
 		.catch(err => {
@@ -83,20 +75,18 @@ export class AuthService  {
 	};
 
 	logout(redirectUri:string){
-		console.log("log out service");
 		return new Promise((resolve, reject)=>{
 			this.auth.logout(redirectUri).then(response=>{
 
 			})
 			.catch(err=>{
 
-
 			});
 		});
 	};
 
 	authenticate(name:string, redirect:any, userData:any) {
-		var provider = this.oAuth2;
+		let provider = this.oAuth2;
 		if (this.config.providers[name].type === '1.0'){
 			provider = this.oAuth1;
 		};
@@ -114,7 +104,7 @@ export class AuthService  {
 	};
 	
 	unlink(provider:string) {
-		var unlinkUrl =  this.config.baseUrl ? 
+		let unlinkUrl =  this.config.baseUrl ? 
 						 authUtils.joinUrl(this.config.baseUrl, this.config.unlinkUrl) : 
 						 this.config.unlinkUrl;
 
