@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container signin">
     <div class="row">
       <div class="panel col-md-5 offset1 ">
         <div class="panel-body">
@@ -20,15 +20,11 @@
             </p>
             <p class="text-center text-muted">
               <small>Don't have an account yet? <a href="/#/signup">Sign up</a></small>
-            </p>
-            <div class="signup-or-separator">
-              <h6 class="text">or</h6>
-              <hr>
-            </div>
+            </p>            
           </form>
         </div>
       </div>
-      <div class="panel col-md-1">&nbsp;</div>
+      <div class="or col-md-1"><h2>Or</h2></div>
       <div class="panel col-md-5">         
           <button repeat.for="provider of providers" class="btn btn-block btn-${provider.name}" click.delegate="$parent.authenticate(provider.name)">
             <i class="ion-social-${provider.name}"></i> Sign in with ${provider.title}
