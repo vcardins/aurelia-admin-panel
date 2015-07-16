@@ -14,25 +14,14 @@
       <require from='./_layout/rdash/side-bar'></require>
       <side-bar router.bind="router"></side-bar>
       <div id="content-wrapper">
+        <require from='./_layout/rdash/header-bar'></require>
+        <header-bar router.bind="router" pageHeading.bind="pageHeading"></header-bar>
         <div class="page-content">
-          <require from='./_layout/rdash/header-bar'></require>
-          <header-bar router.bind="router" pageHeading.bind="pageHeading"></header-bar>
           <div class="row">
             <div class="col-xs-12">
               <router-view></router-view>
             </div>
-          </div>
-           <!-- 
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="widget">
-                <div class="widget-body">
-                  <router-view></router-view>
-                </div>
-              </div>
-            </div>
-          </div>
-           -->
+          </div>          
         </div>
       </div>
    </div>

@@ -1,32 +1,37 @@
 <template>
   <section class="au-animate">
-    <div class="flex-grid">
-      <div>          
-        <table>
-          <thead>
-            <tr>
-              <th sort-by="id" (sorted)="sort($event)">Id</th>
-              <th sort-by="title" (sorted)="sort($event)">Link</th>
-              <th sort-by="category" (sorted)="sort($event)">Category</th>
-              <th sort-by="source" (sorted)="sort($event)">Source</th>          
-            </tr>
-          </thead>
-          <tbody>
-            <tr repeat.for="l of filteredModels">
-              <td>${l.id}</td>
-              <td><a href="${l.url}" target="_blank">${l.title}</a></td>
-              <td>${l.category}</td>
-              <td>${l.source}</td>         
-            </tr>
-             <tr>
-                <td>&nbsp;</td>
-                <td colspan="3" class="text-right">
-                   ${filteredModels.length} Records Found
-                </td>
-            </tr>
-          </tbody>
-        </table>      
-      </div>
-    </div>
+
+        <div class="widget">
+          <div class="widget-header">
+            Links
+          </div>
+          <div class="widget-body">
+            <table>
+              <thead>
+                <tr>
+                  <th sort-by="id" (sorted)="sort($event)">Id</th>
+                  <th sort-by="title" (sorted)="sort($event)">Link</th>
+                  <th sort-by="category" (sorted)="sort($event)">Category</th>
+                  <th sort-by="source" (sorted)="sort($event)">Source</th>          
+                </tr>
+              </thead>
+              <tbody>
+                <tr repeat.for="l of filteredModels">
+                  <td>${l.id}</td>
+                  <td><a href="${l.url}" target="_blank">${l.title}</a></td>
+                  <td>${l.category}</td>
+                  <td>${l.source}</td>         
+                </tr>
+                 <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="3" class="text-right">
+                       ${filteredModels.length} Records Found
+                    </td>
+                </tr>
+              </tbody>
+            </table>      
+          </div>
+        </div>
+  
   </section> 
 </template>
