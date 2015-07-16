@@ -1,0 +1,40 @@
+/* or define path to Font Awesome 3's font folder*/
+@theme: "rdash";
+@jspm: "../../jspm_packages/";
+@fontAwesomePath:   "@{jspm}/npm/font-awesome@4.3.0/fonts";
+
+@import (inline) "@{jspm}/github/twbs/bootstrap@3.3.5/css/bootstrap.css";
+@import (inline) "@{jspm}/npm/font-awesome@4.3.0/css/font-awesome.css";
+@import (inline) "@{jspm}/github/CodeSeven/toastr@2.1.1/toastr.css";
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: ~"url('@{fontAwesomePath}/fontawesome-webfont.eot')";
+  src: ~"url('@{fontAwesomePath}/fontawesome-webfont.eot?#iefix')" format('embedded-opentype'),
+    ~"url('@{fontAwesomePath}/fontawesome-webfont.woff')" format('woff'),
+    ~"url('@{fontAwesomePath}/fontawesome-webfont.ttf')" format('truetype'),
+    ~"url('@{fontAwesomePath}/fontawesome-webfont.svg#FontAwesome')" format('svg');
+}
+
+@import "@{theme}/styles/main.less";
+@import "animation.less";
+@import "flickr.less";
+@import "social.less";
+
+.splash {
+  text-align: center;
+  margin: 10% 0 0 0;
+  box-sizing: border-box;
+  .fa-spinner {
+    text-align: center;
+    display: inline-block;
+    font-size: 72px;
+    margin-top: 50px;
+  }
+  .message {
+    font-size: 72px;
+    line-height: 72px;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+    text-transform: uppercase;
+  }
+}

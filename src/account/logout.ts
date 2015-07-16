@@ -12,7 +12,7 @@ export class Logout{
 	};
 	
 	 activate(){
-		this.auth.logout("#/login").then(response=>{
+		this.auth.logout("/login").then(response=>{
 			console.log("ok logged out on  logout.js");
 		})
 		.catch(err=>{

@@ -1,0 +1,35 @@
+<template>  
+   <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <ul class="sidebar">
+        <li class="sidebar-main">
+          <a click.delegate="toggleSidebar()">
+            ${heading}
+            <span class="menu-icon fa fa-exchange"></span>
+          </a>
+        </li>
+        <!--<li class="sidebar-title"></li>-->
+        <li repeat.for="row of router.navigation | authFilter: parent.isAuthenticated" class="sidebar-list">
+          <a class="${row.isActive ? 'active' : ''}" href.bind="row.href">${row.title}<span class="menu-icon fa fa-tachometer"></span></a>
+        </li>
+      </ul>
+      <div class="sidebar-footer">
+        <div class="col-xs-4">
+          <a href="/" target="_blank">
+            Github
+          </a>
+        </div>
+        <div class="col-xs-4">
+          <a href="/" target="_blank">
+            About
+          </a>
+        </div>
+        <div class="col-xs-4">
+          <a href="/logout">
+            Logout
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- End Sidebar -->   
+</template>

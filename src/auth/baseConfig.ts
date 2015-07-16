@@ -58,7 +58,7 @@ export class BaseConfig{
       httpInterceptor: true,
       loginOnSignup: true,
       baseUrl: '/',
-      loginRedirect: '#/dashboard',
+      loginRedirect: '/dashboard',
       logoutRedirect: '/',
       signupRedirect: '/login',
       loginUrl: '/auth/login',

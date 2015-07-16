@@ -13,11 +13,11 @@ export class LinkModel {
   category:string;
 }
 
-// export interface ILinkService {
-//   all: () => Promise<any>;
-//   getById: (id:number) => Promise<any>;
-//   save: (model:LinkModel) => Promise<boolean>;  
-// }
+export interface ILinkService {
+  all: () => Promise<any>;
+  getById: (id:number) => Promise<any>;
+  save: (model:LinkModel) => Promise<boolean>;  
+}
 // implements ILinkService
 
 @autoinject

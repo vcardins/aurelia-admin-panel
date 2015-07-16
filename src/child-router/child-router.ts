@@ -2,7 +2,6 @@ import {Router} from "aurelia-router"
 
 export class ChildRouter{
   public router: Router;
-  public heading = 'Child Router';
 
   configureRouter(config: any, router){
     config.map([

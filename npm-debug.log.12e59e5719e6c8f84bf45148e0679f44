@@ -8,22 +8,22 @@
 7 silly mapToRegistry uri https://registry.npmjs.org/less
 8 verbose request uri https://registry.npmjs.org/less
 9 verbose request no auth needed
-10 info attempt registry request try #1 at 8:44:27 PM
-11 verbose request id 481f0964f8ca17c9
-12 verbose etag "EWBKWQ277QU0ZT7KJY64KO9U2"
+10 info attempt registry request try #1 at 12:25:03 AM
+11 verbose request id 20791293199725d8
+12 verbose etag "DJR8838EFFME28RATAHR2W55X"
 13 http request GET https://registry.npmjs.org/less
 14 http 304 https://registry.npmjs.org/less
 15 silly get cb [ 304,
-15 silly get   { date: 'Tue, 14 Jul 2015 03:44:27 GMT',
+15 silly get   { date: 'Thu, 16 Jul 2015 07:25:03 GMT',
 15 silly get     via: '1.1 varnish',
 15 silly get     'cache-control': 'max-age=60',
-15 silly get     etag: '"EWBKWQ277QU0ZT7KJY64KO9U2"',
-15 silly get     age: '28',
+15 silly get     etag: '"DJR8838EFFME28RATAHR2W55X"',
+15 silly get     age: '31',
 15 silly get     connection: 'keep-alive',
-15 silly get     'x-served-by': 'cache-lax1434-LAX',
+15 silly get     'x-served-by': 'cache-lax1430-LAX',
 15 silly get     'x-cache': 'HIT',
 15 silly get     'x-cache-hits': '1',
-15 silly get     'x-timer': 'S1436845467.669868,VS0,VE0',
+15 silly get     'x-timer': 'S1437031503.587164,VS0,VE1',
 15 silly get     vary: 'Accept' } ]
 16 verbose etag https://registry.npmjs.org/less from cache
 17 verbose get saving less to /Users/vcardins/.npm/registry.npmjs.org/less/.cache.json
@@ -31,7 +31,7 @@
 19 verbose stack Error: write EPIPE
 19 verbose stack     at exports._errnoException (util.js:746:11)
 19 verbose stack     at WriteWrap.afterWrite (net.js:775:14)
-20 verbose cwd /Users/vcardins/Documents/aurelia/aurelia-skeleton-navigation-ts
+20 verbose cwd /Users/vcardins/Documents/aurelia/aurelia-admin-panel
 21 error Darwin 14.3.0
 22 error argv "node" "/usr/local/bin/npm" "view" "less" "versions"
 23 error node v0.12.5

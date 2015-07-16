@@ -1,9 +1,41 @@
 <template>
-  <require from='./nav-bar'></require>
-
+  <!-- default -->
+  <!--
+  <require from='./_layout/default/nav-bar'></require>
   <nav-bar router.bind="router"></nav-bar>
-
   <div class="page-host">
     <router-view></router-view>
   </div>
+  -->
+  <!-- rdash -->
+ 
+ <div class="hamburg">
+   <div id="page-wrapper" class="${sidebarCls} ${authCls}">
+      <require from='./_layout/rdash/side-bar'></require>
+      <side-bar router.bind="router"></side-bar>
+      <div id="content-wrapper">
+        <div class="page-content">
+          <require from='./_layout/rdash/header-bar'></require>
+          <header-bar router.bind="router" pageHeading.bind="pageHeading"></header-bar>
+          <div class="row">
+            <div class="col-xs-12">
+              <router-view></router-view>
+            </div>
+          </div>
+           <!-- 
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="widget">
+                <div class="widget-body">
+                  <router-view></router-view>
+                </div>
+              </div>
+            </div>
+          </div>
+           -->
+        </div>
+      </div>
+   </div>
+ </div>
+ 
 </template>

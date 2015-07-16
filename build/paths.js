@@ -8,7 +8,7 @@ module.exports = {
   source: appRoot + '**/*.ts',
   typings: "typings/**/*.d.ts",
   html: appRoot + '**/*.html',  
-  style: 'styles/main.less',
+  style: 'src/_layout/main.less',
   output: outputRoot,
   sourceMapRelativePath: '../' + appRoot,
   doc:'./doc',

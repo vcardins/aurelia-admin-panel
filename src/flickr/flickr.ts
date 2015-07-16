@@ -4,7 +4,6 @@ import {HttpClient} from 'aurelia-http-client';
 @inject(HttpClient)
 export class Flickr{
   public http: HttpClient;
-  public heading = 'Flickr';
   public images = [];
   public url = 'http://api.flickr.com/services/feeds/photos_public.gne?tags=mountain&tagmode=any&format=json';
 

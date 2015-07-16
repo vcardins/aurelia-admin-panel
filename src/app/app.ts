@@ -1,6 +1,3 @@
-import 'bootstrap';
-import 'bootstrap/css/bootstrap.css!';
-
 import {Router} from "aurelia-router"
 
 export class App {

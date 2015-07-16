@@ -1,18 +1,19 @@
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-http-client';
-import {LinkModel, ILinkService, LinkService} from './linksService';
+import {LinkModel, LinkService} from './linksService';
+import {Sorter} from '../common/sorter';
 
-@inject(LinkService)
+@autoinject
 export class Links{
 	
-  private service: ILinkService;
+  private service: LinkService;
+  private sorter:Sorter;
   links:Array<LinkModel>;
   filteredModels:Array<LinkModel>;
-  public heading = 'Links';
  
   constructor(service:LinkService){
     this.service = service;
-	//this.sorter = new Sorter();
+	  this.sorter = new Sorter();
   }
 
   activate(){    
@@ -21,7 +22,7 @@ export class Links{
   	});
   }
   
-  // sort(prop) {
-    // this.sorter.sort(this.filteredModels, prop);
-  // }
+  sort(prop) {
+    this.sorter.sort(this.filteredModels, prop);
+  }
 }
