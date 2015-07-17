@@ -21,6 +21,7 @@ export default class {
 				{ route: ['','home'], 	   name: 'home',    	 moduleId: './home/home',       		  nav: false, title:'Home' },
 				{ route: 'dashboard', 	   name: 'dashboard',    moduleId: './dashboard/dashboard',       nav: true, title:'Dashboard', auth:true, description:'Welcome to the Aurelia Navigation App' },
 				{ route: 'flickr',         name: 'flickr',       moduleId: './flickr/flickr',             nav: true, title:'Flickr', auth:true, description:'' },
+				{ route: 'maps',           name: 'maps',         moduleId: './maps/maps',                 nav: true, title:'Maps', auth:true, description:'Google Maps' },
 				{ route: 'child-router',   name: 'child-router', moduleId: './child-router/child-router', nav: true, title:'Child Router', auth:true, description:'' },
 				{ route: 'links',   	   name: 'links', 		 moduleId: './links/links', 			  nav: true, title:'Links', auth:true, description:'' },
 				{ route: 'signup',         name: 'signup', 		 moduleId: './account/signup',       	  nav: false, title:'Signup', description:'' },

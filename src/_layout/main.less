@@ -38,3 +38,27 @@
     text-transform: uppercase;
   }
 }
+
+.map-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  transition: all .5s;
+  .google-map {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  /* fix for Twitter Bootstrap handling of responsive images */
+  img {
+      max-width: none;
+  }
+}
+
+/** FIX for Bootstrap and Google Maps Info window styes problem **/
+img[src*="gstatic.com/"], img[src*="googleapis.com/"] {
+    max-width: none;
+}
+
+/* uncomment this if you are using the <google-map> element instead of a div*/

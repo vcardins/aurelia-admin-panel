@@ -8,8 +8,11 @@
             <span class="menu-icon fa fa-exchange"></span>
           </a>
         </li>
-        <!--<li class="sidebar-title"></li>-->
-        <li repeat.for="row of router.navigation | authFilter: parent.isAuthenticated" class="sidebar-list">
+        <li class="sidebar-search-bar">
+          <input type="text" placeholder="Search" name="search" value.bind="searchValue" keydown.delegate="search($event)"/>
+          <i class="fa fa-search"></i>  
+        </li>
+        <li repeat.for="row of router.navigation | authFilter: parent.isAuthenticated" class="sidebar-list" title="${row.title}">
           <a class="${row.isActive ? 'active' : ''}" href.bind="row.href">${row.title}<span class="menu-icon fa fa-tachometer"></span></a>
         </li>
       </ul>

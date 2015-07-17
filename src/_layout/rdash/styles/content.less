@@ -3,17 +3,28 @@
     margin-left: 0;
     width: 100%;
     height: auto;
+    padding-top: 60px;
 }
-.page-content { padding: 20px }
+.page-content { 
+    padding: 20px; 
+}
 @media only screen and (min-width:561px){
     #page-wrapper.open {
       padding-left: 250px;
     }
 }
 @media only screen and (max-width:560px){
-    #page-wrapper.open {
-      padding-left: 70px;
+    #page-wrapper {
+      &.open{
+        padding-left: 70px;
+      }
+      #content-wrapper {
+          .page-content {
+              padding-left: 70px;
+          }
+      }
     }
+    
 }
 #page-wrapper.open #sidebar-wrapper {
     left: 150px;

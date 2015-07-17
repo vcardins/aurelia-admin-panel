@@ -50,6 +50,19 @@ ul.sidebar {
             line-height: 60px;
         }
     }
+    .sidebar-search-bar {
+        padding: 10px 0;
+        input { 
+            width: 70%;
+            border: 0; 
+            background-color:rgba(255, 255, 255, 0.05);
+            padding: 5px 10px;
+            color:#fff;
+            margin-right: 10px;
+            &:focus { border:0}
+        }
+        i { color: #fff; text-indent: 0; }
+    }
     .sidebar-title {
         color: @sidebarTitleColor;
         font-size: 12px;
@@ -90,6 +103,7 @@ ul.sidebar {
             height: 0px;
             text-indent: -100px;
         }
+        .sidebar-search-bar { display: none}
         .sidebar-title.separator {
             display: block;
             height: 2px;

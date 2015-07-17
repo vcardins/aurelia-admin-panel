@@ -31,6 +31,7 @@ System.config({
     "core-js": "npm:core-js@0.9.18",
     "css": "github:systemjs/plugin-css@0.1.13",
     "font-awesome": "npm:font-awesome@4.3.0",
+    "google-maps-api": "npm:google-maps-api@1.0.2",
     "jquery": "github:components/jquery@2.1.4",
     "moment": "github:moment/moment@2.10.3",
     "toastr": "github:CodeSeven/toastr@2.1.1",
@@ -160,17 +161,6 @@ System.config({
       "aurelia-router": "github:aurelia/router@0.10.2",
       "aurelia-templating": "github:aurelia/templating@0.13.3"
     },
-    "github:aurelia/templating@0.12.1": {
-      "aurelia-binding": "github:aurelia/binding@0.7.3",
-      "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.8.1",
-      "aurelia-html-template-element": "github:aurelia/html-template-element@0.2.0",
-      "aurelia-loader": "github:aurelia/loader@0.7.0",
-      "aurelia-logging": "github:aurelia/logging@0.5.0",
-      "aurelia-metadata": "github:aurelia/metadata@0.6.0",
-      "aurelia-path": "github:aurelia/path@0.7.0",
-      "aurelia-task-queue": "github:aurelia/task-queue@0.5.0",
-      "core-js": "npm:core-js@0.9.18"
-    },
     "github:aurelia/templating@0.13.3": {
       "aurelia-binding": "github:aurelia/binding@0.8.2",
       "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.9.0",
@@ -194,6 +184,9 @@ System.config({
     "github:twbs/bootstrap@3.3.5": {
       "jquery": "github:components/jquery@2.1.4"
     },
+    "npm:asap@1.0.0": {
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
     "npm:babel-runtime@5.6.20": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
@@ -204,6 +197,17 @@ System.config({
     },
     "npm:font-awesome@4.3.0": {
       "css": "github:systemjs/plugin-css@0.1.13"
+    },
+    "npm:google-maps-api@1.0.2": {
+      "latlng": "npm:latlng@1.0.0",
+      "promise": "npm:promise@6.1.0",
+      "scriptjs": "npm:scriptjs@2.5.7"
+    },
+    "npm:promise@6.1.0": {
+      "asap": "npm:asap@1.0.0"
+    },
+    "npm:scriptjs@2.5.7": {
+      "process": "github:jspm/nodelibs-process@0.1.1"
     }
   }
 });

@@ -1,10 +1,23 @@
 /**
  * Header
  */
+ #page-wrapper:not(.open) {
+    .row.header {
+        left: 70px;
+    }     
+ }
+ 
 .row.header {
     height: 60px;
     background: #fff;
     margin-bottom: 15px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    left: 250px;
+    margin: 0 0 60px;
+    transition: all .4s ease 0s;
     & > div:last-child {
         padding-right: 0;
     }
