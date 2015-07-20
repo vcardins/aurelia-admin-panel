@@ -1,35 +1,37 @@
 <template>
   <div class="container signin">
     <div class="row">
-      <div class="panel col-md-5 offset1 ">
-        <div class="panel-body">
-          <h2 class="text-center">Log in</h2>
-          <form method="post" name="loginForm">
-            <div class="form-group has-feedback">
-              <input class="form-control input-lg" type="text" name="email" value.bind="email" placeholder="Email" required autofocus>
-              <span class="ion-at form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-              <input class="form-control input-lg" type="password" name="password" value.bind="password" placeholder="Password" required>
-              <span class="ion-key form-control-feedback"></span>
-            </div>
-            <button type="submit" click.delegate="login()" class="btn btn-lg  btn-block btn-success">Log in</button>
-            <br/>
-            <p class="text-center">
-              <a href="#">Forgot your password?</a>
-            </p>
-            <p class="text-center text-muted">
-              <small>Don't have an account yet? <a href="/signup">Sign up</a></small>
-            </p>            
-          </form>
+      <div class="col-md-12">
+        <div class="panel col-md-5">
+          <div class="panel-body">
+            <h2 class="text-center">Log in</h2>
+            <form method="post" name="loginForm">
+              <div class="form-group has-feedback">
+                <input class="form-control input-lg" type="text" name="email" value.bind="email" placeholder="Email" required autofocus>
+                <span class="ion-at form-control-feedback"></span>
+              </div>
+              <div class="form-group has-feedback">
+                <input class="form-control input-lg" type="password" name="password" value.bind="password" placeholder="Password" required>
+                <span class="ion-key form-control-feedback"></span>
+              </div>
+              <button type="submit" click.delegate="login()" class="btn btn-lg  btn-block btn-success">Log in</button>
+              <br/>
+              <p class="text-center">
+                <a href="#">Forgot your password?</a>
+              </p>
+              <p class="text-center text-muted">
+                <small>Don't have an account yet? <a href="/signup">Sign up</a></small>
+              </p>            
+            </form>
+          </div>
         </div>
+        <div class="or col-md-1" style="text-align:right"><h2>Or</h2></div>
+        <div class="panel col-md-5" style="float:right">         
+            <button repeat.for="provider of providers" class="btn btn-block btn-${provider.name}" click.delegate="$parent.authenticate(provider.name)">
+              <i class="ion-social-${provider.name}"></i> Sign in with ${provider.title}
+            </button>       
+          </div>    
       </div>
-      <div class="or col-md-1"><h2>Or</h2></div>
-      <div class="panel col-md-5">         
-          <button repeat.for="provider of providers" class="btn btn-block btn-${provider.name}" click.delegate="$parent.authenticate(provider.name)">
-            <i class="ion-social-${provider.name}"></i> Sign in with ${provider.title}
-          </button>       
-        </div>    
     </div>
   </div>
 </template>

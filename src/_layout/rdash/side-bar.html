@@ -10,10 +10,10 @@
         </li>
         <li class="sidebar-search-bar">
           <input type="text" placeholder="Search" name="search" value.bind="searchValue" keydown.delegate="search($event)"/>
-          <i class="fa fa-search"></i>  
+          <a click.delegate="search()"><i class="fa fa-search"></i></a>  
         </li>
         <li repeat.for="row of router.navigation | authFilter: parent.isAuthenticated" class="sidebar-list" title="${row.title}">
-          <a class="${row.isActive ? 'active' : ''}" href.bind="row.href">${row.title}<span class="menu-icon fa fa-tachometer"></span></a>
+          <a class="menu ${row.isActive ? 'active' : ''}" href.bind="row.href">${row.title}<span class="menu-icon fa fa-tachometer"></span></a>
         </li>
       </ul>
       <div class="sidebar-footer">

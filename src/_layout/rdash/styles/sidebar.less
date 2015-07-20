@@ -26,11 +26,13 @@ ul.sidebar {
     overflow-x: hidden;
     overflow-y: auto;
     li {
-        a {
-            color: #fff;
+        a { 
+            color: #fff; 
+            text-decoration: none;
+        }
+        a.menu {
             display: block;
             float: left;
-            text-decoration: none;
             width: 250px;
         }
     }
@@ -39,9 +41,9 @@ ul.sidebar {
         a {
             font-size: 18px;
             line-height: 60px;
-        }
-        a:hover {
-            cursor: pointer;
+            &:hover {
+                cursor: pointer;
+            }
         }
         .menu-icon {
             float: right;
@@ -59,7 +61,8 @@ ul.sidebar {
             padding: 5px 10px;
             color:#fff;
             margin-right: 10px;
-            &:focus { border:0}
+            border-radius: 4px;
+            &:focus { border:0 }
         }
         i { color: #fff; text-indent: 0; }
     }
@@ -73,20 +76,21 @@ ul.sidebar {
     }
     .sidebar-list {
         height: 40px;
-        a {
+        a.menu {
             text-indent: 25px;
             font-size: 15px;
             color: #b2bfdc;
             line-height: 40px;
-        }
-        a:hover, a.active {
-            color: #fff;
-            border-left: 3px solid @sidebarMenuItemHover;
-            text-indent: 22px;
-            .menu-icon {
-                text-indent: 25px;
+            &:hover, &.active {
+                color: #fff;
+                border-left: 3px solid @sidebarMenuItemHover;
+                text-indent: 22px;
+                .menu-icon {
+                    text-indent: 25px;
+                }
             }
         }
+       
         .menu-icon {
             float: right;
             padding-right: 29px;
@@ -136,10 +140,10 @@ ul.sidebar {
             color: #b2bfdc;
             font-size: 12px;
             line-height: 43px;
-        }
-        a:hover {
-            color: #ffffff;
-            text-decoration: none;
+            &:hover {
+                color: #ffffff;
+                text-decoration: none;
+            }
         }
     }
 }

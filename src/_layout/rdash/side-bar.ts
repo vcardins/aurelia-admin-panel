@@ -24,10 +24,10 @@ export class SideBar {
   }
   
   search(e:KeyboardEvent) {
-    if (e.keyCode == this.ENTER) {
-      console.log(this.searchValue);    
-    }    
-    return true;
+    if (e && e.keyCode !== this.ENTER) {
+      return true;   
+    } 
+    console.log(this.searchValue); 
   }
   
 }

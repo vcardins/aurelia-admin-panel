@@ -24,16 +24,15 @@ export class Maps {
   }
   
   activate() {
-    this.ea.subscribe('router:navigation:complete', function (e) {
-        if (e.instruction.fragment === "/maps") { 
-            setTimeout(function() {
-                this.map = new google.maps.Map(document.getElementById('gmap'),
-                {
-                    center: new google.maps.LatLng(38.8977, -77.0366),
-                    zoom: 15
-                });
-            }, 100);
-        }
+    this.ea.subscribe('router:navigation:complete', e => {
+        if (e.instruction.fragment !== "/maps") { return; }
+        setTimeout(function() {
+            this.map = new google.maps.Map(document.getElementById('gmap'),
+            {
+                center: new google.maps.LatLng(38.8977, -77.0366),
+                zoom: 15
+            });
+        }, 100);
     });
   } 
   

@@ -12,6 +12,7 @@ export interface IOAuthConfig {
     redirectUri: string;
     popupOptions: any,
     authorizationEndpoint: string;
+    state: string;
 }
 
 @inject(HttpClient, Storage, Popup, BaseConfig)

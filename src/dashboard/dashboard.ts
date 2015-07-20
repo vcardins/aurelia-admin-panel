@@ -26,7 +26,7 @@ export class Dashboard{
 
   submit(){
     this.previousValue = this.user.fullName;
-    toastr.success(`Welcome, ${this.user.fullName}!`, 'Welcome');	
+    toastr.info(`Welcome, ${this.user.fullName}!`, 'Welcome');	
   }
 
   canDeactivate() {
