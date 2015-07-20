@@ -97,12 +97,12 @@ var authUtils = {
 	isWindow: function(obj) {
 	  return obj && obj.window === obj;
 	},
-	extend : function(dst) {
+	extend : function(...dst: any[]) {
 		let arr = baseExtend(dst, slice.call(arguments, 1), false);
 		return arr;
 		
 	},
-	merge: function merge(dst) {
+	merge: function merge(...dst: any[]) {
 		let arr = baseExtend(dst, slice.call(arguments, 1), true);
 		//let arr = Object.assign({}, dst, slice.call(arguments, 1));
 		return arr;
@@ -125,7 +125,7 @@ var authUtils = {
 					iterator.call(context, obj[key], key, obj);
 				}
 			}
-		} else if (obj.forEach && obj.forEach !== forEach) {
+		} else if (obj.forEach && obj.forEach !== this.forEach) {
 			obj.forEach(iterator, context, obj);
 		} else if (authUtils.isBlankObject(obj)) {
 		      // createMap() fast path --- Safe to avoid hasOwnProperty check because prototype chain is empty

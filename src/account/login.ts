@@ -33,7 +33,7 @@ export class Login{
 				});
 	};
 	
-	public authenticate(name:string):void {
+	public authenticate(name:string):Promise<void> {
 		return this.auth.authenticate(name, false, null).then((response)=>{
 					console.log("auth response " + response);
 				});

@@ -24,9 +24,9 @@ export interface ILinkService {
 export class LinkService extends DataService  {  
   
   url:string = 'links';
-  constructor(httpClient:HttpClient, private baseConfig:BaseConfig, aurelia:Aurelia) {        
+  constructor(httpClient:HttpClient, baseConfig:BaseConfig) {        
     super(httpClient, baseConfig);         
-    
+    //, aurelia:Aurelia
     //var cfg = aurelia.container.get(BaseConfig);	
     //this.isLocal = true;
   }

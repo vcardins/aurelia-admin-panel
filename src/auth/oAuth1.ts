@@ -10,27 +10,20 @@ interface IOAuth1Config extends IOAuthConfig{
   
 }
 
-@inject(HttpClient, Storage, Popup, BaseConfig )
+@inject(HttpClient, Storage, Popup, BaseConfig)
 export class OAuth1 extends OAuth{
 	
 	defaults:IOAuth1Config;    
 	
 	constructor(http:HttpClient, storage:Storage, popup:Popup, config:BaseConfig){
-		super(http, storage, popup, config);
-		this.defaults = {
-			clientId:null,
-			url: null,
-			name: null,
-			popupOptions: null,
-			redirectUri: null,
-			authorizationEndpoint: null
-		};
+		super(http, storage, popup, config);	
+		this.defaults = this.getDefaults();	
 	}
 
-	open(options:any, userData:any) {
+	open(options:any, userData:any):Promise<void> {
 		
-		//let args:IArguments = (this.defaults, options);
-		authUtils.extend(this.defaults, options);
+		//this.defaults = Object.assign(this.defaults, options);
+		this.defaults = authUtils.extend({}, this.defaults, options);
 				
 		let serverUrl:string = this.config.baseUrl 
 			? authUtils.joinUrl(this.config.baseUrl, this.defaults.url) 
@@ -70,27 +63,25 @@ export class OAuth1 extends OAuth{
 		});
 	};
 
-	exchangeForToken(oauthData:any, userData:any) {
+	exchangeForToken(oauthData:any, userData:any):void {
 		//let args:IArguments = ({}, userData, oauthData);
 		let data = authUtils.extend({}, userData, oauthData);
 		let exchangeForTokenUrl 
 			= this.config.baseUrl ? authUtils.joinUrl(this.config.baseUrl, this.defaults.url) : this.defaults.url;
-			return this.http.createRequest(exchangeForTokenUrl)
-			.asPost()
-			.withCredentials(this.config.withCredentials)
-			.withContent(data)
-			.send()
-			.then(response => {
-				return response;
-			})
-			.catch(err => {
-				console.log("error :" + err.content.message);
-				throw err;
-			});
+			return this.http.post(exchangeForTokenUrl, data)
+				.withCredentials(this.config.withCredentials)
+				.send()
+				.then(response => {
+					return response;
+				})
+				.catch(err => {
+					console.log("error :" + err.content.message);
+					throw err;
+				});
 	
 	};
 
-	buildQueryString (obj) {
+	buildQueryString (obj?:any) {
 		let str = [];
 	
 		authUtils.forEach(obj, function(value, key) {

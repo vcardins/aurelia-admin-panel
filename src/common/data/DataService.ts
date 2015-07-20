@@ -2,6 +2,7 @@
 import {autoinject, inject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-http-client';
 import {IAuthConfig, BaseConfig} from '../../auth/baseConfig';
+import * as common from '../common';
 
 export interface IDataService {
   plainRequest: (route:string, httpRequestType:string, data:Object, headers:Object) => Promise<any>;
@@ -20,6 +21,7 @@ export interface IConfigRequest {
     data: any;  
 }
 
+
 @autoinject
 export class DataService implements IDataService {
  
@@ -34,7 +36,7 @@ export class DataService implements IDataService {
   public isLocal:boolean;
   public apiPrefix:string = 'api/';
    
-  constructor(http:HttpClient, private baseConfig:BaseConfig) {    
+  constructor(http:HttpClient, baseConfig:BaseConfig) {    
     this.config = baseConfig.current; 
     this.http = http;   
     // let authInfo = JSON.parse(localStorage.getItem('jwt'));    

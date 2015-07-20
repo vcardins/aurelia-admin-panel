@@ -1,13 +1,14 @@
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-http-client';
 import {Authentication} from './authentication';
 import {IAuthConfig, BaseConfig} from './baseConfig';
+import {OAuth} from './oAuth';
 import {OAuth1} from './oAuth1';
 import {OAuth2} from './oAuth2';
 import authUtils from './authUtils';
 import {status, json} from './fetch'
 
-@inject(HttpClient, Authentication, OAuth1, OAuth2, BaseConfig)
+@autoinject//(HttpClient, Authentication, OAuth1, OAuth2, BaseConfig)
 export class AuthService  {
 	
 	private config:IAuthConfig;
@@ -90,10 +91,9 @@ export class AuthService  {
 	};
 
 	authenticate(name:string, redirect:any, userData:any) {
-		let provider = this.oAuth2;
-		if (this.config.providers[name].type === '1.0'){
-			provider = this.oAuth1;
-		};
+		let provider:OAuth; 		
+		provider = (this.config.providers[name].type === '1.0') ? this.oAuth1 : this.oAuth2;
+		
 		return provider.open(this.config.providers[name], userData || {}).then((response) => {
 			this.auth.setToken(response, redirect);
 			return response;

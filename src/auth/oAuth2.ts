@@ -1,4 +1,4 @@
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 import authUtils from './authUtils';
 import {Storage} from './storage';
 import {Popup} from './popup';
@@ -6,17 +6,10 @@ import {IOAuthConfig, OAuth} from './OAuth';
 import {IAuthConfig, BaseConfig}  from './baseConfig';
 import {HttpClient} from 'aurelia-http-client';
 
-interface IOAuth2Config  extends IOAuthConfig{
-    clientId:string;
-    url: string;
-    name: string;
-    state: any;
+interface IOAuth2Config extends IOAuthConfig{
     scope: any;
     scopeDelimiter: string;
-    scopePrefix: string;
-    redirectUri: string;
-    popupOptions: any,
-    authorizationEndpoint: string;
+    scopePrefix: string;            
     responseParams: any;
     requiredUrlParams: any;
     optionalUrlParams: any;
@@ -24,36 +17,22 @@ interface IOAuth2Config  extends IOAuthConfig{
     responseType:string;
 }
 
-@inject(HttpClient, Storage, Popup, BaseConfig)
+@autoinject
 export class OAuth2 extends OAuth{
 	
     defaults:IOAuth2Config;
     
 	constructor(http:HttpClient, storage:Storage, popup:Popup,  config:BaseConfig){
-		super(http, storage, popup, config);
-        this.defaults = {
-            clientId:null,
-            url: null,
-            name: null,
-            state: null,
-            scope: null,
-            scopePrefix:null,
-            scopeDelimiter: null,
-            redirectUri: null,
-            popupOptions: null,
-            authorizationEndpoint: null,
-            responseParams: null,
-            requiredUrlParams: null,
-            optionalUrlParams: null,
-            defaultUrlParams: ['response_type', 'client_id', 'redirect_uri'],
-            responseType: 'code'
-        };
+		super(http, storage, popup, config);               
+        this.defaults = this.getDefaults(2);
     }
 
-    open(options:any, userData:any) {
+    open(options:any, userData:any):Promise<void> {
         
         //let args:IArguments = (this.defaults, options);
-		authUtils.extend(this.defaults, options);        
+        //this.defaults = Object.assign(this.defaults, options);
+        this.defaults = authUtils.extend({}, this.defaults, options);
+        		        
         let stateName = this.defaults.name + '_state';
 
         if (authUtils.isFunction(this.defaults.state)) {
@@ -84,7 +63,8 @@ export class OAuth2 extends OAuth{
             });
     };
 
-    exchangeForToken(oauthData:any, userData:any) {
+    exchangeForToken(oauthData:any, userData:any):void {
+        
         let data = authUtils.extend({}, userData, {
             code: oauthData.code,
             clientId: this.defaults.clientId,
@@ -101,9 +81,7 @@ export class OAuth2 extends OAuth{
 
         let exchangeForTokenUrl = this.config.baseUrl ? authUtils.joinUrl(this.config.baseUrl, this.defaults.url) : this.defaults.url;
       
-            return this.http.createRequest(exchangeForTokenUrl)
-                .asPost()
-                .withContent(data)
+            return this.http.post(exchangeForTokenUrl, data)
                 .withCredentials(this.config.withCredentials)
                 .send()
                 .then(response => {
@@ -115,7 +93,7 @@ export class OAuth2 extends OAuth{
                 });
     };
       
-    buildQueryString() {
+    buildQueryString():string {
         let keyValuePairs = [];
         let urlParams = ['defaultUrlParams', 'requiredUrlParams', 'optionalUrlParams'];
         authUtils.forEach(urlParams, (params) => {

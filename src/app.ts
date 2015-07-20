@@ -21,6 +21,7 @@ export class App {
   
   constructor(router: Router, appRouterConfig: AppRouterConfig, httpClientConfig:HttpClientConfig, 
               auth:AuthService, eventAggregator:EventAggregator, public observerLocator:ObserverLocator){
+                
     this.router = router;
     this.appRouterConfig = appRouterConfig;
     this.httpClientConfig = httpClientConfig;   ;
