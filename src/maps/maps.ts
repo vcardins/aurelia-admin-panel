@@ -5,7 +5,7 @@ import {inject, autoinject} from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
 
 //@autoinject //inject(mapsapi('<Do I really need the api key>'), EventAggregator)//'InsertYourGMAPIKeyHere'
-@inject(mapsapi('AIzaSyBmxq35ilK6_SXo8J1YQQ9xaC8Lc47Zuuk'), EventAggregator)
+@inject(mapsapi('<API_KEY_HERE>'), EventAggregator)
 export class Maps {  
   map:any;
   geocoder:any;
