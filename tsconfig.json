@@ -7,7 +7,7 @@
     "noImplicitAny": false,
     "removeComments": true,
     "noLib": false,
-    "emitDecoratorMetadata": true,
+    "emitDecoratorMetadata": false,
     "sourceMap": true,
     "listFiles": true,
     "outDir": "dist",

@@ -8,7 +8,7 @@ export class AuthorizeStep {
   
   private auth:Authentication;
   
-  constructor(auth:Authentication){
+  constructor(auth:Authentication){    
     this.auth = auth;
   }
   run(routingContext, next) {

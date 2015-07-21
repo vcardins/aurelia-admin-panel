@@ -5,7 +5,6 @@ export class HeaderBar {
   
   parent:any;  
   pageHeading:string;
-  @bindable public router;  
   
   constructor(){   
     // subscribe to the "bar" property's changes:

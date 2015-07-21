@@ -1,10 +1,10 @@
-import {autoinject, ObserverLocator} from 'aurelia-framework';
+import {inject, autoinject, ObserverLocator} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
+import {EventAggregator} from 'aurelia-event-aggregator';
 import {AuthorizeStep} from './auth/AuthorizeStep';
 import AppRouterConfig from './app.router.config';
 import HttpClientConfig from './auth/app.httpClient.config';
 import {AuthService} from './auth/AuthService';
-import {EventAggregator} from 'aurelia-event-aggregator';
 
 @autoinject
 export class App {
@@ -20,8 +20,8 @@ export class App {
   obsLoc:any;
   
   constructor(router: Router, appRouterConfig: AppRouterConfig, httpClientConfig:HttpClientConfig, 
-              auth:AuthService, eventAggregator:EventAggregator, public observerLocator:ObserverLocator){
-                
+              auth:AuthService, eventAggregator:EventAggregator, private observerLocator:ObserverLocator){
+    
     this.router = router;
     this.appRouterConfig = appRouterConfig;
     this.httpClientConfig = httpClientConfig;   ;
@@ -33,7 +33,7 @@ export class App {
     this.authCls = this.isAuthenticated ? 'auth' : 'anon';     
   }
 
-  activate(){    
+  activate(){        
     this.httpClientConfig.configure();
     this.appRouterConfig.configure();
     

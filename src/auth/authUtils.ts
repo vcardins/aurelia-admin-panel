@@ -98,13 +98,13 @@ var authUtils = {
 	  return obj && obj.window === obj;
 	},
 	extend : function(...dst: any[]) {
-		let arr = baseExtend(dst, slice.call(arguments, 1), false);
+		let arr = baseExtend(dst[0], slice.call(arguments, 1), false);
 		return arr;
 		
 	},
-	merge: function merge(...dst: any[]) {
-		let arr = baseExtend(dst, slice.call(arguments, 1), true);
-		//let arr = Object.assign({}, dst, slice.call(arguments, 1));
+	merge: function merge(...dst: any[]) { //...dst: any[]
+		let arr = baseExtend(dst[0], slice.call(arguments, 1), true);		
+		//let arr2 = Object.assign({}, dst, slice.call(arguments, 1));
 		return arr;
 	},
 	forEach :function(obj:any, iterator:any, context:any = undefined) {

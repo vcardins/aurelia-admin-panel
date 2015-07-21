@@ -18,13 +18,28 @@ System.config({
 System.config({
   "map": {
     "aurelia-animator-css": "github:aurelia/animator-css@0.13.0",
+    "aurelia-binding": "github:aurelia/binding@0.8.2",
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.14.0",
     "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.9.0",
+    "aurelia-event-aggregator": "github:aurelia/event-aggregator@0.6.1",
     "aurelia-files": "github:grofit/aurelia-files@0.0.1",
     "aurelia-framework": "github:aurelia/framework@0.13.3",
-    "aurelia-generate": "github:grofit/aurelia-generate@0.0.7",
+    "aurelia-generate": "github:grofit/aurelia-generate@0.0.8",
+    "aurelia-history": "github:aurelia/history@0.6.0",
+    "aurelia-history-browser": "github:aurelia/history-browser@0.6.1",
     "aurelia-http-client": "github:aurelia/http-client@0.10.0",
+    "aurelia-loader": "github:aurelia/loader@0.8.2",
+    "aurelia-loader-default": "github:aurelia/loader-default@0.9.0",
+    "aurelia-logging": "github:aurelia/logging@0.6.1",
+    "aurelia-metadata": "github:aurelia/metadata@0.7.0",
+    "aurelia-path": "github:aurelia/path@0.8.0",
+    "aurelia-route-recognizer": "github:aurelia/route-recognizer@0.6.0",
     "aurelia-router": "github:aurelia/router@0.10.2",
+    "aurelia-task-queue": "github:aurelia/task-queue@0.6.0",
+    "aurelia-templating": "github:aurelia/templating@0.13.11",
+    "aurelia-templating-binding": "github:aurelia/templating-binding@0.13.1",
+    "aurelia-templating-resources": "github:aurelia/templating-resources@0.13.1",
+    "aurelia-templating-router": "github:aurelia/templating-router@0.14.0",
     "babel": "npm:babel-core@5.7.4",
     "babel-runtime": "npm:babel-runtime@5.7.0",
     "bootstrap": "github:twbs/bootstrap@3.3.5",
@@ -185,9 +200,9 @@ System.config({
       "core-js": "npm:core-js@0.9.18"
     },
     "github:grofit/aurelia-files@0.0.1": {
-      "aurelia-framework": "github:aurelia/framework@0.12.0"
+      "aurelia-framework": "github:aurelia/framework@0.13.3"
     },
-    "github:grofit/aurelia-generate@0.0.7": {
+    "github:grofit/aurelia-generate@0.0.8": {
       "aurelia-framework": "github:aurelia/framework@0.12.0"
     },
     "github:jspm/nodelibs-process@0.1.1": {

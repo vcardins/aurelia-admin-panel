@@ -1,4 +1,4 @@
-import {autoinject} from 'aurelia-framework';
+import {inject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-http-client';
 import {Authentication} from './authentication';
 import {IAuthConfig, BaseConfig} from './baseConfig';
@@ -8,7 +8,7 @@ import {OAuth2} from './oAuth2';
 import authUtils from './authUtils';
 import {status, json} from './fetch'
 
-@autoinject//(HttpClient, Authentication, OAuth1, OAuth2, BaseConfig)
+@inject(HttpClient, Authentication, OAuth1, OAuth2, BaseConfig)
 export class AuthService  {
 	
 	private config:IAuthConfig;

@@ -17,7 +17,7 @@ export class Links{
   }
 
   activate(){    
-  	return this.service.all().then((response) => {      
+  	return this.service.all().then((response) => {   
   		this.links = this.filteredModels = response;	
   	});
   }
