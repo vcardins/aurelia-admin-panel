@@ -1,4 +1,4 @@
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-http-client';
 import {Authentication} from './authentication';
 import {IAuthConfig, BaseConfig} from './baseConfig';
@@ -8,21 +8,22 @@ import {OAuth2} from './oAuth2';
 import authUtils from './authUtils';
 import {status, json} from './fetch'
 
-@inject(HttpClient, Authentication, OAuth1, OAuth2, BaseConfig)
-export class AuthService  {
-	
+//@autoinject
+export class AuthService  {	
+	static inject = [HttpClient, Authentication, BaseConfig, OAuth1, OAuth2];
 	private config:IAuthConfig;
-	private http:HttpClient;
-	private auth:Authentication;
-	private oAuth1:OAuth1;
-	private oAuth2:OAuth2;
-	
-	constructor(http:HttpClient, auth:Authentication, oAuth1:OAuth1, oAuth2:OAuth2, config:BaseConfig){
+	constructor(
+		private http:HttpClient, 
+		private auth:Authentication, 
+		private oAuth1:OAuth1, 
+		private oAuth2:OAuth2, 
+		private cfg:BaseConfig
+	){
 		this.http = http;
 		this.auth = auth;
 		this.oAuth1 = oAuth1;
 		this.oAuth2 = oAuth2;
-		this.config = config.current;
+		this.config = cfg.current;
 	};
   
 	getMe(){

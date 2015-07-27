@@ -1,36 +1,47 @@
-import {inject, autoinject, ObserverLocator} from 'aurelia-framework';
+import {autoinject, inject, ObserverLocator} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {AuthorizeStep} from './auth/AuthorizeStep';
 import AppRouterConfig from './app.router.config';
 import HttpClientConfig from './auth/app.httpClient.config';
 import {AuthService} from './auth/AuthService';
+import * as toastr from 'toastr';
 
-@autoinject
-export class App {
-  
-  private router: Router;
-  private appRouterConfig: AppRouterConfig;
-  private httpClientConfig: HttpClientConfig;
-  private auth:AuthService;
-  private ea:EventAggregator;
+//@autoinject
+export class App {  
+  static inject = [Router, AppRouterConfig, HttpClientConfig, AuthService, EventAggregator,ObserverLocator];
   public sidebarCls:string;  
   authCls:string;  
   activeRoute:string;  
   obsLoc:any;
-  
-  constructor(router: Router, appRouterConfig: AppRouterConfig, httpClientConfig:HttpClientConfig, 
-              auth:AuthService, eventAggregator:EventAggregator, private observerLocator:ObserverLocator){
-    
+  constructor(
+        public router: Router,
+        private appRouterConfig: AppRouterConfig,
+        private httpClientConfig: HttpClientConfig,
+        private auth: AuthService,
+        private ea: EventAggregator,
+        public observerLocator: ObserverLocator
+    ) {   
     this.router = router;
     this.appRouterConfig = appRouterConfig;
     this.httpClientConfig = httpClientConfig;   ;
     this.auth = auth;       
-    this.ea = eventAggregator;
+    this.ea = ea;
     this.obsLoc = observerLocator;
     
     this.sidebarCls =  this.isAuthenticated ? 'open' : ''; 
     this.authCls = this.isAuthenticated ? 'auth' : 'anon';     
+    toastr.options = {
+      closeButton: true,
+      newestOnTop: false,
+      progressBar: true,
+      positionClass: "toast-top-right",
+      preventDuplicates: false,
+      showEasing: "swing",
+      hideEasing: "linear",
+      showMethod: "fadeIn",
+      hideMethod: "fadeOut"
+    };
   }
 
   activate(){        
@@ -42,7 +53,7 @@ export class App {
       this.activeRoute = cfg;      
     })    
     this.obsLoc = this.observerLocator.getObserver(this, 'sidebarCls');
-    this.obsLoc.subscribe(this.observeSidebarState);            
+    this.obsLoc.subscribe(this.observeSidebarState);          
   }
   
   observeSidebarState() {

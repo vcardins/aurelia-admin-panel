@@ -28,3 +28,7 @@
 /// <reference path="es6-promise/es6-promise.d.ts" />
 /// <reference path="googlemaps/google.maps.d.ts" />
 /// <reference path="jasmine/jasmine.d.ts" />
+/// <reference path="_custom/moment-node.d.ts" />
+/// <reference path="_custom/moment.d.ts" />
+/// <reference path="_custom/toastr.d.ts" />
+/// <reference path="jquery/jquery.d.ts" />

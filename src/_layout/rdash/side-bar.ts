@@ -1,8 +1,7 @@
-import {bindable, autoinject} from 'aurelia-framework';
+import {bindable} from 'aurelia-framework';
 
-@autoinject
 export class SideBar {
-  
+    
   heading:string;    
   parent:any;
   ENTER:number  = 13;
@@ -10,7 +9,7 @@ export class SideBar {
   
   @bindable public router = null;
   
-  constructor(){  	
+  constructor(){   	
     this.heading = 'Aurelia';    
   }
     

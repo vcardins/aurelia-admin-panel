@@ -1,17 +1,17 @@
-import {autoinject} from 'aurelia-framework';
+import {inject} from 'aurelia-framework';
 import {Router, RouterConfiguration} from 'aurelia-router';
 import {AuthorizeStep} from './auth/AuthorizeStep';
 
-@autoinject
+//@autoinject
 export default class {
+	static inject = [Router];
 
-	public router: Router;
-
-	constructor(router: Router){
+	constructor(public router: Router){
 		this.router = router;
 	}
 	
 	configure(){		
+		
 		let self = this;
 		let appRouterConfig:any = function(config:RouterConfiguration){
 			config.title = 'Aurelia';
@@ -34,6 +34,6 @@ export default class {
 			   self.router.navigate('/login');
 		    })
 		 };		
-		this.router.configure(appRouterConfig);	
+		this.router.configure(appRouterConfig);			
 	}	
 }

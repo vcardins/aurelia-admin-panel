@@ -4,19 +4,17 @@ import {IAuthConfig, BaseConfig}  from './baseConfig';
 import {Authentication} from './authentication';
 import {Storage} from './storage';
 
-@inject(HttpClient,Authentication,Storage, BaseConfig)
+//@autoinject
 export default class  {
 	
-	private http:HttpClient;
-	private auth:Authentication;
-	private storage:Storage;
-	private config:IAuthConfig;
+	static inject = [HttpClient,Authentication,Storage, BaseConfig];		
+	public config:IAuthConfig;
 	
-	constructor(http:HttpClient, auth:Authentication, storage:Storage, config:BaseConfig){
+	constructor(private http:HttpClient, private auth:Authentication, private storage:Storage, private cfg:BaseConfig){
 		this.http = http;
 		this.auth = auth;
 		this.storage = storage;
-		this.config = config.current;
+		this.config = cfg.current;
 	}
 
 	configure(){

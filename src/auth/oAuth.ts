@@ -1,4 +1,4 @@
-import {autoinject} from 'aurelia-framework';
+import {inject} from 'aurelia-framework';
 import authUtils from './authUtils';
 import {Storage} from './storage';
 import {Popup} from './popup';
@@ -29,17 +29,16 @@ export interface IOAuth {
     buildQueryString: (obj?:any) => string;
 }
 
-@autoinject
+//@autoinject
 export class OAuth implements IOAuth{
 	
-	public http:HttpClient;
-	public popup:Popup;
-	public storage:Storage;
+    static inject = [HttpClient, Storage, Popup, BaseConfig];
+	
 	public config:IAuthConfig;
 	
-	constructor(http:HttpClient, storage:Storage, popup:Popup,  config:BaseConfig){
+	constructor(public http:HttpClient, public storage:Storage, public popup:Popup, cfg:BaseConfig){
 		this.storage = storage;
-		this.config = config.current;
+		this.config = cfg.current;
 		this.popup = popup;
 		this.http = http;		               
 	}

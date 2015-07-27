@@ -16,6 +16,12 @@ export class User {
   }
 }
 
+export class UpperValueConverter {
+  public toView(value){
+    return value && value.toUpperCase();
+  }
+}
+
 export class Dashboard{
   public heading = 'Welcome to the Aurelia Navigation App!';
 
@@ -28,16 +34,10 @@ export class Dashboard{
     this.previousValue = this.user.fullName;
     toastr.info(`Welcome, ${this.user.fullName}!`, 'Welcome');	
   }
-
+  
   canDeactivate() {
     if (this.user.fullName !== this.previousValue) {
       return confirm('Are you sure you want to leave?');
     }
-  }
-}
-
-export class UpperValueConverter {
-  public toView(value){
-    return value && value.toUpperCase();
   }
 }

@@ -4,23 +4,23 @@ var changed = require('gulp-changed');
 var plumber = require('gulp-plumber');
 var paths = require('../paths');
 var ts = require('gulp-typescript');
-var tsLib = require("typescript");
+var Typescript = require("typescript");
 
 // compiles the typescript files to js
 gulp.task('build-ts', function () {
   var tsResult = gulp.src([paths.source, paths.typings])
     .pipe(plumber())
     .pipe(ts({
-      module: "system",
-      removeComments: true,
       target: "es5",
+      module: "amd",
+      removeComments: true,
+      //target: "es5",
       declarationFiles: false,
       noExternalResolve: true,
-      emitDecoratorMetadata: true,
+      emitDecoratorMetadata: false,
       experimentalDecorators: true,
-      typescript: tsLib // use 1.5 beta
+      typescript: Typescript
     }));
-
   return tsResult.js.pipe(gulp.dest(paths.output));
 });
 

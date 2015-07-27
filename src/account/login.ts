@@ -9,11 +9,10 @@ export class Login{
 	heading:string = 'Login';	
 	email:string='';
 	password:string='';
-	auth:AuthService;
 	public providers:Array<any> = [];
   	public signupUrl:string;
   
-	constructor(auth:AuthService, private config:BaseConfig){
+	constructor(private auth:AuthService, private config:BaseConfig){
 		this.auth = auth;
 		if (config.current) {
 			this.signupUrl = config.current.signupUrl;

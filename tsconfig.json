@@ -1,13 +1,13 @@
 {
   "version": "1.5.0",
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
+    "target": "es5",
+    "module": "amd",
     "declaration": false,
     "noImplicitAny": false,
     "removeComments": true,
     "noLib": false,
-    "emitDecoratorMetadata": false,
+    "emitDecoratorMetadata": true,
     "sourceMap": true,
     "listFiles": true,
     "outDir": "dist",

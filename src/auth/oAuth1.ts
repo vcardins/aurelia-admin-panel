@@ -10,13 +10,15 @@ interface IOAuth1Config extends IOAuthConfig{
   
 }
 
-@inject(HttpClient, Storage, Popup, BaseConfig)
+//@inject(HttpClient, Storage, Popup, BaseConfig)
 export class OAuth1 extends OAuth{
+
+	static inject = [HttpClient, Storage, Popup, BaseConfig];
 	
 	defaults:IOAuth1Config;    
 	
-	constructor(http:HttpClient, storage:Storage, popup:Popup, config:BaseConfig){
-		super(http, storage, popup, config);	
+	constructor(public http:HttpClient, public storage:Storage, public popup:Popup, cfg:BaseConfig){
+		super(http, storage, popup, cfg);	
 		this.defaults = this.getDefaults();	
 	}
 

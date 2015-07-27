@@ -3,20 +3,21 @@ import {HttpClient} from 'aurelia-http-client';
 import {LinkModel, LinkService} from './linksService';
 import {Sorter} from '../common/sorter';
 
-@autoinject
+//@autoinject
 export class Links{
 	
-  private service: LinkService;
+  static inject = [LinkService];
+  
   private sorter:Sorter;
   links:Array<LinkModel>;
   filteredModels:Array<LinkModel>;
  
-  constructor(service:LinkService){
+  constructor(public service:LinkService){
     this.service = service;
 	  this.sorter = new Sorter();
   }
 
-  activate(){    
+  activate(){
   	return this.service.all().then((response) => {   
   		this.links = this.filteredModels = response;	
   	});

@@ -1,11 +1,12 @@
 import {IDataService, DataService} from './DataService';
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 
+//@autoinject
 export class DataSource {
-  repoNames:Array<string>;
-  service:DataService;
+  static inject = [DataService];
+  repoNames:Array<string>;  
   
-  constructor(service:DataService) {    
+  constructor(public service:DataService) {    
     this.repoNames = ['account/Account'];
     this.service = service;
     //this.defineLazyLoadedRepos();

@@ -1,18 +1,19 @@
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 import {IAuthConfig, BaseConfig}  from './baseConfig';
 import {Storage} from './storage';
 import authUtils from './authUtils';
 
-@inject(Storage, BaseConfig)
+//@autoinject
 export class Authentication{
   
+  static inject = [Storage, BaseConfig];
+
   tokenName:string;
-  storage:Storage;
   config:IAuthConfig;
   
-  constructor(storage:Storage, config:BaseConfig){
+  constructor(public storage:Storage, public cfg:BaseConfig){
     this.storage = storage;
-    this.config = config.current;
+    this.config = cfg.current;
     this.tokenName = this.config.tokenPrefix ? `${this.config.tokenPrefix}_${this.config.tokenName}` : this.config.tokenName;                        
   }
 

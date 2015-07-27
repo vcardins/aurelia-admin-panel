@@ -1,6 +1,5 @@
-import {bindable, autoinject} from 'aurelia-framework';
+import {bindable} from 'aurelia-framework';
 
-@autoinject
 export class HeaderBar {
   
   parent:any;  

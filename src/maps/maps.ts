@@ -1,10 +1,9 @@
 import {bindable} from 'aurelia-framework';
+import {inject} from 'aurelia-framework';
+import {EventAggregator} from 'aurelia-event-aggregator';
 import * as mapsapi from 'google-maps-api';
 import * as toastr from 'toastr';
-import {inject, autoinject} from 'aurelia-framework';
-import {EventAggregator} from 'aurelia-event-aggregator';
 
-//@autoinject //inject(mapsapi('<Do I really need the api key>'), EventAggregator)//'InsertYourGMAPIKeyHere'
 @inject(mapsapi('AIzaSyBmxq35ilK6_SXo8J1YQQ9xaC8Lc47Zuuk'), EventAggregator)
 export class Maps {  
   map:any;
