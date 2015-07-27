@@ -1,0 +1,65 @@
+<template>
+  <section class="au-animate page-content">
+    <div class="widget">
+      <div class="widget-header">${contact.fullName}</div>
+      <div class="widget-body">  
+        <form role="form" class="form-horizontal">
+          <div class="form-group">
+            <label class="col-sm-2 control-label">First Name</label>
+            <div class="col-sm-10">
+              <input type="text" placeholder="first name" class="form-control" value.bind="contact.firstName">
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Last Name</label>
+            <div class="col-sm-10">
+              <input type="text" placeholder="last name" class="form-control" value.bind="contact.lastName">
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" placeholder="email" class="form-control" value.bind="contact.email">
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Phone Nember</label>
+            <div class="col-sm-10">
+              <input type="text" placeholder="phone number" class="form-control" value.bind="contact.phoneNumber">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Address</label>
+            <div class="col-sm-10">
+              <input type="text" placeholder="address" class="form-control" value.bind="contact.address">
+            </div>
+          </div>
+                  
+          <div class="form-group">
+            <label class="col-sm-2 control-label">City</label>
+            <div class="col-sm-10">
+              <input type="text" placeholder="city" class="form-control" value.bind="contact.city">
+            </div>
+          </div>
+                  
+          <div class="form-group">
+            <label class="col-sm-2 control-label">State</label>
+            <div class="col-sm-10">
+              <input type="text" placeholder="state" class="form-control" value.bind="contact.state.name">
+            </div>
+          </div>
+                    
+        </form>
+        
+        <div class="button-bar">
+          <a class="btn btn-default" route-href="route: contacts"><i class="fa fa-arrow-left"></i>&nbsp;Return</a>
+          <button class="btn btn-success pull-right" click.delegate="save()" disabled.bind="!canSave"><i class="fa fa-save"></i>&nbsp;Save</button>
+        </div>
+      </div>
+    </div>      
+  </section>    
+</template>

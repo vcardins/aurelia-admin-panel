@@ -47,6 +47,14 @@ export class DataService implements IDataService {
     return this._jwt; 
   }
   
+  public find(route:string, prop:string, value:any):Promise<any> {
+    return this.get(route, 'GET').then(data => {
+      return data.filter(item => {        
+        return item[prop] == value; 
+      })[0];
+    });
+  }
+  
   public get(route:string, data:Object = undefined, headers:Object = undefined):Promise<any> {
     return this.request(route, 'GET', data, headers);
   }
@@ -76,7 +84,16 @@ export class DataService implements IDataService {
   private request(route:string, httpRequestType:string, data:Object = undefined, headers:Object = undefined):Promise<any> {      
       data = data || {};
       let req = this._getConfigRequest(route, httpRequestType, data, headers);    
-      return this.http.get(req.url).then(response => {
+      let p:Promise;
+      switch(httpRequestType) {
+        case 'GET' : p = this.http.get(req.url, data); break;
+        case 'POST' : p = this.http.post(req.url, data); break;
+        case 'PUT' : p = this.http.put(req.url, data); break;
+        case 'PATCH' : p = this.http.patch(req.url, data); break;
+        case 'DELETE' : p = this.http.delete(req.url); break;
+      }
+      //.withHeader('foo', 'bar')
+      return p.then(response => {
   			return response.content;
   		});  
   }

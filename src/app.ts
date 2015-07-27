@@ -53,7 +53,7 @@ export class App {
       this.activeRoute = cfg;      
     })    
     this.obsLoc = this.observerLocator.getObserver(this, 'sidebarCls');
-    this.obsLoc.subscribe(this.observeSidebarState);          
+    this.obsLoc.subscribe(this.observeSidebarState);             
   }
   
   observeSidebarState() {

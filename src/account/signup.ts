@@ -1,9 +1,11 @@
 import {inject} from 'aurelia-framework';
 import {AuthService} from '../auth/AuthService';
 
-@inject(AuthService)
+//@inject(AuthService)
 export class Signup{
-
+	
+	static inject = [AuthService];
+	
 	heading:string = 'Sign Up';
 	email:string='';
 	password:string='';

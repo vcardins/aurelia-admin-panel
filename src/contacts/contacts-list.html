@@ -1,6 +1,10 @@
-<template>
-  <section class="au-animate page-content">
-    <h1>${heading}</h1>
-  </section>
-  <router-view></router-view>
+<template>  
+    <ul class="list-group">
+      <li repeat.for="contact of contacts" class="list-group-item ${contact.id === $parent.selectedId ? 'active' : ''}">
+        <a route-href="route: contact-details; params.bind: {id:contact.id}" click.delegate="$parent.select(contact)"><!-- route-href="route: contact-details; params.bind: {id:contact.id}" -->
+          <h4 class="list-group-item-heading">${contact.firstName} ${contact.lastName}</h4>
+          <p class="list-group-item-text">${contact.email}</p>
+        </a>
+      </li>
+    </ul>
 </template>

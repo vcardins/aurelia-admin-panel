@@ -24,22 +24,8 @@ export default class {
 				{ route: 'maps',           name: 'maps',         moduleId: './maps/maps',                 nav: true, title:'Maps', auth:true, description:'Google Maps' },
 				{ route: 'child-router',   name: 'child-router', moduleId: './child-router/child-router', nav: true, title:'Child Router', auth:true, description:'' },
 				{ route: 'links',   	   name: 'links', 		 moduleId: './links/links', 			  nav: true, title:'Links', auth:true, description:'' },
-				//{ route: 'contacts',  	   name: 'contacts', 	 moduleId: './contacts/contacts', 	      nav: true, title:'Contacts', auth:true, description:'' },
-				{
-			        route: 'contacts',
-			        viewPorts: {
-				    	left: {
-				      		moduleId: './contacts/contacts-list'
-				    	},
-			      		right:{
-				      		moduleId: './contacts/contacts-edit'
-				    	}
-					},
-			        nav: true,
-					title:'Contacts', 
-					auth:true, 
-					description:''
-		      	},
+				{ route: 'contacts',  	   name: 'contacts', 	 moduleId: './contacts/contacts', 	      nav: true, title:'Contacts', auth:true, description:'' },				
+				{ route: 'contacts/:id',   name: 'contact-details', moduleId: './contacts/contact-details', nav: false, title:'Contact\'s Details', auth:true, description:'' }
 				// {
 				// 	route:'contacts',
 				// 	name: 'contacts',
