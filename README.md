@@ -1,4 +1,4 @@
-# aurelia-skeleton-navigation-ts
+# aurelia-admin-panel
 
 This is pretty much a copy of the original skeleton app but with typescript and tsc in most places instead of babel and ES6 js.
 
