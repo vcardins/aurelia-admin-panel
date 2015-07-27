@@ -84,6 +84,7 @@
       "google-maps-api": "npm:google-maps-api@^1.0.2",
       "jquery": "github:components/jquery@^2.1.4",
       "moment": "github:moment/moment@^2.10.3",
+      "nprogress": "github:rstacruz/nprogress@^0.2.0",
       "toastr": "github:CodeSeven/toastr@^2.1.1"
     },
     "devDependencies": {

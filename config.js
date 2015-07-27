@@ -49,6 +49,7 @@ System.config({
     "google-maps-api": "npm:google-maps-api@1.0.2",
     "jquery": "github:components/jquery@2.1.4",
     "moment": "github:moment/moment@2.10.3",
+    "nprogress": "github:rstacruz/nprogress@0.2.0",
     "toastr": "github:CodeSeven/toastr@2.1.1",
     "github:aurelia/animator-css@0.13.0": {
       "aurelia-templating": "github:aurelia/templating@0.13.11"
@@ -168,6 +169,9 @@ System.config({
     },
     "github:jspm/nodelibs-process@0.1.1": {
       "process": "npm:process@0.10.1"
+    },
+    "github:rstacruz/nprogress@0.2.0": {
+      "css": "github:systemjs/plugin-css@0.1.13"
     },
     "github:twbs/bootstrap@3.3.5": {
       "jquery": "github:components/jquery@2.1.4"

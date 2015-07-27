@@ -32,3 +32,4 @@
 /// <reference path="_custom/moment.d.ts" />
 /// <reference path="_custom/toastr.d.ts" />
 /// <reference path="jquery/jquery.d.ts" />
+/// <reference path="_custom/NProgress.d.ts" />

@@ -18,6 +18,7 @@ export class Links{
   constructor(public service:LinkService){
     this.service = service;
 	  this.sorter = new Sorter();
+    console.log(this.sorter);
   }
 
   activate(){

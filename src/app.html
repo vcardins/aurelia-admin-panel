@@ -8,7 +8,8 @@
   </div>
   -->
   <!-- rdash -->
- 
+ <require from="./loading-indicator"></require>
+ <loading-indicator loading.bind="router.isNavigating || api.isRequesting"></loading-indicator>
  <div class="hamburg">
    <div id="page-wrapper" class="${sidebarCls} ${authCls}">
       <require from='./_layout/rdash/side-bar'></require>
