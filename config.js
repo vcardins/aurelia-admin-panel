@@ -42,6 +42,7 @@ System.config({
     "babel": "npm:babel-core@5.7.4",
     "babel-runtime": "npm:babel-runtime@5.7.0",
     "bootstrap": "github:twbs/bootstrap@3.3.5",
+    "charlespockert/aurelia-bs-grid": "github:charlespockert/aurelia-bs-grid@0.0.2",
     "core-js": "npm:core-js@0.9.18",
     "css": "github:systemjs/plugin-css@0.1.13",
     "font-awesome": "npm:font-awesome@4.3.0",
@@ -155,6 +156,15 @@ System.config({
       "aurelia-path": "github:aurelia/path@0.8.0",
       "aurelia-task-queue": "github:aurelia/task-queue@0.6.0",
       "core-js": "npm:core-js@0.9.18"
+    },
+    "github:charlespockert/aurelia-bs-grid@0.0.2": {
+      "bootstrap": "github:twbs/bootstrap@3.3.5",
+      "gooy/aurelia-compiler": "github:gooy/aurelia-compiler@0.0.5"
+    },
+    "github:gooy/aurelia-compiler@0.0.5": {
+      "aurelia-loader": "github:aurelia/loader@0.8.2",
+      "aurelia-loader-default": "github:aurelia/loader-default@0.9.0",
+      "aurelia-templating": "github:aurelia/templating@0.13.11"
     },
     "github:jspm/nodelibs-process@0.1.1": {
       "process": "npm:process@0.10.1"

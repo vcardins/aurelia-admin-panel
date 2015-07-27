@@ -9,6 +9,7 @@ export function configure(aurelia: Aurelia) {
     .developmentLogging()
     .plugin('aurelia-animator-css')
     .plugin('toastr')    
+    .plugin('charlespockert/aurelia-bs-grid')
     .plugin('./dist/auth/index', (baseConfig)=> { 
     	baseConfig.configure(config);      
     });  

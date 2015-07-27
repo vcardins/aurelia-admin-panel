@@ -28,7 +28,7 @@ export class Login{
 					console.log("Success logged ", response);
 				})
 				.catch(err=>{
-					toastr.error(err.message, 'Login Failed');	
+					toastr.error('An error ocurred trying to login. Please, check if the auth server is up', 'Login Failed');//err.message	
 				});
 	};
 	
