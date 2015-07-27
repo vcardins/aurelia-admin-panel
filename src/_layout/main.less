@@ -3,6 +3,8 @@
 @jspm: "../../jspm_packages/";
 @fontAwesomePath:   "@{jspm}/npm/font-awesome@4.3.0/fonts";
 
+@blue: #30426a;
+
 @import (inline) "@{jspm}/github/twbs/bootstrap@3.3.5/css/bootstrap.css";
 @import (inline) "@{jspm}/npm/font-awesome@4.3.0/css/font-awesome.css";
 @import (inline) "@{jspm}/github/CodeSeven/toastr@2.1.1/toastr.css";
@@ -20,6 +22,10 @@
 @import "animation.less";
 @import "flickr.less";
 @import "social.less";
+
+.toast-info {
+	background-color: @blue;
+}
 
 .splash {
   text-align: center;

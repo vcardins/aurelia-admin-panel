@@ -3,6 +3,7 @@ import config from './authConfig';
 import {ConsoleAppender} from 'aurelia-logging-console';
 
 export function configure(aurelia: Aurelia) {
+  
   let _theme:string = 'rdash';
   aurelia.use
     .standardConfiguration()
@@ -11,7 +12,8 @@ export function configure(aurelia: Aurelia) {
     .plugin('toastr')    
     .plugin('charlespockert/aurelia-bs-grid')
     .plugin('./dist/auth/index', (baseConfig)=> { 
-    	baseConfig.configure(config);      
+    	let cfg = baseConfig.configure(config);
+      window.appConfig = cfg;   
     });  
       
   aurelia.start().then(a => a.setRoot()); //'app', document.body
