@@ -1,20 +1,13 @@
 <template>  
     <section class="au-animate page-content">
         <div class="row">
-          <require from="./contacts-list"></require>
-          <contacts-list class="col-md-4"></contact-list>
-          <require from="./contact-details"></require>
-          <div class="col-md-8" style="padding: 0">
-            <router-view></router-view>
-          </div>          
+            <div class="col-md-4">
+              <require from="./contacts-list"></require>
+              <contacts-list></contact-list>  
+            </div>
+            <div class="col-md-8">
+                <router-view></router-view>
+            </div>
         </div>
-    </section>        
-        <!--
-        <div class="page-host w60">
-          <router-view name="left"></router-view>
-        </div>
-        <div class="page-host w40">      
-          <router-view name="right"></router-view>
-        </div>
-        -->
+    </section>
 </template>

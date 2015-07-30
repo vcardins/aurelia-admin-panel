@@ -22,7 +22,7 @@ export class ContactsList {
       Object.assign(found, msg.contact);
     });
   }
-
+  
   created(){
     this.api.all().then(contacts => {
       this.contacts = contacts;

@@ -17,6 +17,9 @@ export class SideBar {
       // bindingContext is your parent view-model
       this.parent = bindingContext;
   }
+  activate(c:any,config:any) {
+    console.log(config)
+  }
   
   toggleSidebar() {
     this.parent.sidebarCls = this.parent.sidebarCls == 'open' ? '' : 'open';

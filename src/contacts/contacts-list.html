@@ -1,10 +1,13 @@
-<template>  
-    <ul class="list-group">
-      <li repeat.for="contact of contacts" class="list-group-item ${contact.id === $parent.selectedId ? 'active' : ''}">
-        <a route-href="route: contact-details; params.bind: {id:contact.id}" click.delegate="$parent.select(contact)"><!-- route-href="route: contact-details; params.bind: {id:contact.id}" -->
-          <h4 class="list-group-item-heading">${contact.firstName} ${contact.lastName}</h4>
-          <p class="list-group-item-text">${contact.email}</p>
-        </a>
-      </li>
-    </ul>
+<template>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <a class="btn btn-primary" route-href="route: contacts"><i class="fa fa-plus"></i>&nbsp;New</a>
+    </li>
+    <li repeat.for="contact of contacts" class="list-group-item ${contact.id === $parent.selectedId ? 'active' : ''}">
+      <a route-href="route: contact-details; params.bind: {id:contact.id}" click.delegate="$parent.select(contact)">
+        <h4 class="list-group-item-heading">${contact.firstName} ${contact.lastName}</h4>
+        <p class="list-group-item-text">${contact.email}</p>
+      </a>
+    </li>
+  </ul>
 </template>

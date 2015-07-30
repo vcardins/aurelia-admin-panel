@@ -35,6 +35,7 @@ export class DataService implements IDataService {
   
   public isLocal:boolean;
   public apiPrefix:string = 'api/';
+  public isRequesting:boolean = false;
    
   constructor(public http:HttpClient, private baseConfig:BaseConfig) {    
     this.config = baseConfig.current; 
@@ -84,9 +85,9 @@ export class DataService implements IDataService {
   private request(route:string, httpRequestType:string, data:Object = undefined, headers:Object = undefined):Promise<any> {      
       data = data || {};
       let req = this._getConfigRequest(route, httpRequestType, data, headers);    
-      let p:Promise;
+      let p:Promise<any>;
       switch(httpRequestType) {
-        case 'GET' : p = this.http.get(req.url, data); break;
+        case 'GET' : p = this.http.get(req.url); break;//, data
         case 'POST' : p = this.http.post(req.url, data); break;
         case 'PUT' : p = this.http.put(req.url, data); break;
         case 'PATCH' : p = this.http.patch(req.url, data); break;

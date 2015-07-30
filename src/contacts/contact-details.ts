@@ -17,15 +17,18 @@ export class ContactDetails {
   constructor(public ea:EventAggregator, public api:ContactService){
     this.api = api;
     this.ea = ea;
-    this.contact = this.originalContact = new Contact();    
+    this.contact = new Contact();   
   }
 
-  activate(params:any, config:any){ //params, config
+  activate(params:any, config:any):any { //params, config
     // this.ea.subscribe(ContactSelected, msg => {
     //   console.log(msg.contact);
     //   this.contact = this.originalContact = msg.contact;
     // });
-    if (!params.id) { return true; }
+    if (!params.id) { 
+      this.contact = this.originalContact = new Contact(); 
+      return true; 
+    }
     return this.api.getById(params.id).then(contact => {
       this.contact = this.originalContact = new Contact(contact);
       config.navModel.setTitle(this.contact.firstName);
@@ -46,6 +49,7 @@ export class ContactDetails {
   }
 
   canDeactivate(){
+    if (!this.contact.id) {return true;}
     if(!areEqual(this.originalContact, this.contact)){
       let result = confirm('You have unsaved changes. Are you sure you wish to leave?');
       if(!result){

@@ -1,25 +1,25 @@
 
 class State {
-  abbreviation:string;
-  name:string;  
+  abbreviation:string = null;
+  name:string = null;  
 }
                 
 export class Contact {
-	id:string = '';  
-  firstName:string = '';
-  lastName:string = '';
-  gender:string = '';
-  address:string = '';
-  city:string = '';
-  state:State = '';  
-  email:string = '';
-  phoneNumber:string = '';
+	id:string = null;  
+  firstName:string = null;
+  lastName:string = null;
+  gender:string = null;
+  address:string = null;
+  city:string = null;
+  state:State = new State();  
+  email:string = null;
+  phoneNumber:string = null;
   
   constructor(model?:Contact) {
-    Object.assign(this, model || {});        
+    if (model) { Object.assign(this, model);  }
   }
   
   get fullName(){
-    return `${this.firstName} ${this.lastName}`;
+    return (this.firstName) ? `${this.firstName} ${this.lastName}` : undefined;
   }
 }
