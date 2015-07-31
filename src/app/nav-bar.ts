@@ -1,8 +1,8 @@
 import {bindable} from 'aurelia-framework';
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 import {AuthService} from '../auth/AuthService';
 
-@inject(AuthService)
+@autoinject
 export class NavBar {
   
   _isAuthenticated:boolean=false;  

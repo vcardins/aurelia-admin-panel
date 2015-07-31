@@ -5,11 +5,9 @@ import {HttpClient} from 'aurelia-http-client';
 import {LinkModel, LinkService} from './linksService';
 import {Sorter} from '../common/sorter';
 
-//@autoinject
+@autoinject
 export class Links{
 	
-  static inject = [LinkService];
-
   private sorter:Sorter;
   links:Array<LinkModel>;
   count:number;

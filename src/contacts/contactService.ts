@@ -5,10 +5,8 @@ import {DataService} from '../common/data/DataService'
 import {BaseConfig} from '../auth/baseConfig';
 import {Contact} from './contact';
 
-//@autoinject
+@autoinject
 export class ContactService extends DataService  {  
-  
-  static inject = [HttpClient, BaseConfig];
   
   url:string = 'Contacts';
   constructor(httpClient:HttpClient, baseConfig:BaseConfig) {        

@@ -2,7 +2,7 @@
 import {DataService} from '../common/data/DataService'
 import {HttpClient} from 'aurelia-http-client';
 import {BaseConfig} from '../auth/baseConfig';
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 import {Aurelia} from 'aurelia-framework';
 
 export class LinkModel {
@@ -20,11 +20,9 @@ export interface ILinkService {
 }
 // implements ILinkService
 
-//@autoinject
+@autoinject
 export class LinkService extends DataService  {  
-  
-  static inject = [HttpClient, BaseConfig];
-  
+
   url:string = 'links';
   constructor(httpClient:HttpClient, baseConfig:BaseConfig) {        
     super(httpClient, baseConfig);         

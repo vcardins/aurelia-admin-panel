@@ -16,11 +16,9 @@ interface IOAuth2Config extends IOAuthConfig{
     defaultUrlParams: string[];
     responseType:string;
 }
-//@autoinject
+@autoinject
 export class OAuth2 extends OAuth{
 	
-    static inject = [HttpClient, Storage, Popup, BaseConfig];
-    
     private defaults:IOAuth2Config;
     
 	constructor(public http:HttpClient, public storage:Storage, public popup:Popup, private cfg:BaseConfig){

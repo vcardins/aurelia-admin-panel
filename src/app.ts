@@ -7,9 +7,9 @@ import HttpClientConfig from './auth/app.httpClient.config';
 import {AuthService} from './auth/AuthService';
 import * as toastr from 'toastr';
 
-//@autoinject
-export class App {  
-  static inject = [Router, AppRouterConfig, HttpClientConfig, AuthService, EventAggregator,ObserverLocator];
+@autoinject
+export class App {    
+  //static inject = [Router, AppRouterConfig, HttpClientConfig, AuthService, EventAggregator,ObserverLocator];  
   public sidebarCls:string;  
   authCls:string;  
   activeRoute:string;  

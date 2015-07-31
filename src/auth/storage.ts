@@ -1,4 +1,4 @@
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 import {IAuthConfig, BaseConfig} from './baseConfig';
 
 interface IStorage {
@@ -7,10 +7,9 @@ interface IStorage {
 	removeItem(key:string): void;
 }
 
-//@autoinject
+@autoinject
 export class Storage{
 	
-	static inject = [BaseConfig];	
 	private config:IAuthConfig;
 	private isStorageAvailable:boolean = true;
 	private storage:IStorage;

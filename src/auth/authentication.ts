@@ -3,11 +3,9 @@ import {IAuthConfig, BaseConfig}  from './baseConfig';
 import {Storage} from './storage';
 import authUtils from './authUtils';
 
-//@autoinject
+@autoinject
 export class Authentication{
   
-  static inject = [Storage, BaseConfig];
-
   tokenName:string;
   config:IAuthConfig;
   

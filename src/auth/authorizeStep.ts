@@ -3,11 +3,9 @@ import {Authentication} from './authentication';
 import {Redirect} from 'aurelia-router';
 import {Router} from 'aurelia-router';
 
-//@autoinject
+@autoinject
 export class AuthorizeStep {
   
-  static inject = [Authentication];
-
   constructor(private auth:Authentication){    
     this.auth = auth;
   }

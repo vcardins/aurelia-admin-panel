@@ -23,14 +23,71 @@
 }
 
 /* Base */
-html {
-    overflow-y: scroll;
+html, body, #main {
+    height: 100%;
+    width: 100%;
+    color: #444;
+    padding: 0px;
+    margin: 0px;
+   font-family: "Montserrat";
 }
-body {    
-    background-color: #f8f8f8;
-    font-family: "Montserrat";
-    color: #333333 !important;
+
+body {     
+   background: #f5f5f5
 }
+
+.toast-info {
+	background-color: @blue;
+}
+
+.splash {
+    text-align: center;
+    margin: 0;
+    box-sizing: border-box; 
+    padding-top: 250px;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom, #337ab7,#67B0EF);
+    color:#fff;
+    .fa-spinner {
+        text-align: center;
+        display: inline-block;
+        font-size: 72px;
+        margin-top: 50px;
+    }
+    .message {
+        font-size: 64px;
+        line-height: 64px;        
+        text-shadow: rgba(0, 0, 0, 0.3) 0 0 15px;
+        text-transform: uppercase;
+    }
+}
+
+.map-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  transition: all .5s;
+  .google-map {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  /* fix for Twitter Bootstrap handling of responsive images */
+  img {
+      max-width: none;
+  }
+}
+
+/** FIX for Bootstrap and Google Maps Info window styes problem **/
+img[src*="gstatic.com/"], img[src*="googleapis.com/"] {
+    max-width: none;
+}
+
+/* uncomment this if you are using the <google-map> element instead of a div*/
+
+
 .row {
     margin-left: 0 !important;
     margin-right: 0 !important;

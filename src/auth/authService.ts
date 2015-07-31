@@ -8,9 +8,9 @@ import {OAuth2} from './oAuth2';
 import authUtils from './authUtils';
 import {status, json} from './fetch'
 
-//@autoinject
+@autoinject
 export class AuthService  {	
-	static inject = [HttpClient, Authentication, BaseConfig, OAuth1, OAuth2];
+
 	private config:IAuthConfig;
 	constructor(
 		private http:HttpClient, 

@@ -1,11 +1,10 @@
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 import {Router, RouterConfiguration} from 'aurelia-router';
 import {AuthorizeStep} from './auth/AuthorizeStep';
 
-//@autoinject
+@autoinject
 export default class {
-	static inject = [Router];
-
+	
 	constructor(public router: Router){
 		this.router = router;
 	}

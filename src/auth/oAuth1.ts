@@ -1,4 +1,4 @@
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 import authUtils from './authUtils';
 import {Storage} from './storage';
 import {Popup} from './popup';
@@ -10,10 +10,10 @@ interface IOAuth1Config extends IOAuthConfig{
   
 }
 
-//@inject(HttpClient, Storage, Popup, BaseConfig)
+@autoinject
 export class OAuth1 extends OAuth{
 
-	static inject = [HttpClient, Storage, Popup, BaseConfig];
+	//static inject = [HttpClient, Storage, Popup, BaseConfig];
 	
 	defaults:IOAuth1Config;    
 	

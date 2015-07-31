@@ -1,10 +1,8 @@
 import {autoinject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-http-client';
 
-//@autoinject
+@autoinject
 export class Flickr{
-  
-  static inject = [HttpClient];
   
   public images = [];
   public url = 'http://api.flickr.com/services/feeds/photos_public.gne?tags=mountain&tagmode=any&format=json';

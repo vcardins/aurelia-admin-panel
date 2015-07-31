@@ -1,10 +1,9 @@
 import {AuthService} from '../auth/AuthService';
 import {UserProfile} from './userProfile';
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 import * as toastr from 'toastr';
 
-@inject(AuthService)
-
+@autoinject
 export class Profile{
 	
 	auth:AuthService;

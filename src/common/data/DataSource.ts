@@ -1,9 +1,9 @@
 import {IDataService, DataService} from './DataService';
 import {autoinject} from 'aurelia-framework';
 
-//@autoinject
+@autoinject
 export class DataSource {
-  static inject = [DataService];
+
   repoNames:Array<string>;  
   
   constructor(public service:DataService) {    

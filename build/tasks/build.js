@@ -14,12 +14,11 @@ gulp.task('build-ts', function () {
       target: "es5",
       module: "amd",
       removeComments: true,
-      //target: "es5",
       declarationFiles: false,
       noExternalResolve: true,
-      emitDecoratorMetadata: false,
+      emitDecoratorMetadata: true,
       experimentalDecorators: true,
-      typescript: Typescript
+      //typescript: Typescript
     }));
   return tsResult.js.pipe(gulp.dest(paths.output));
 });

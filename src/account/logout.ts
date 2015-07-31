@@ -1,8 +1,7 @@
 import {AuthService} from '../auth/AuthService';
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 
-@inject(AuthService)
-
+@autoinject
 export class Logout{
 	
 	auth:AuthService;

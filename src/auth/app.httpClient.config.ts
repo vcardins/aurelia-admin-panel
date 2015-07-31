@@ -1,13 +1,12 @@
 import {HttpClient, RequestBuilder} from 'aurelia-http-client';
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 import {IAuthConfig, BaseConfig}  from './baseConfig';
 import {Authentication} from './authentication';
 import {Storage} from './storage';
 
-//@autoinject
+@autoinject
 export default class  {
 	
-	static inject = [HttpClient,Authentication,Storage, BaseConfig];		
 	public config:IAuthConfig;
 	
 	constructor(private http:HttpClient, private auth:Authentication, private storage:Storage, private cfg:BaseConfig){

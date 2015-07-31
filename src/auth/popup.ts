@@ -1,8 +1,8 @@
 import authUtils from './authUtils';
 import {IAuthConfig, BaseConfig}  from './baseConfig';
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 
-@inject(BaseConfig)
+@autoinject
 export class Popup{
 
 	private config:IAuthConfig;

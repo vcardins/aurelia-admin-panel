@@ -21,10 +21,8 @@ export interface IConfigRequest {
     data: any;  
 }
 
-//@autoinject
+@autoinject
 export class DataService implements IDataService {
- 
-  static inject = [HttpClient, BaseConfig];
  
   private config:IAuthConfig;
   private configRequest:IConfigRequest;
