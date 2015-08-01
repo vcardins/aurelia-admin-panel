@@ -1,9 +1,12 @@
 <template>
-  <section class="au-animate page-content">
+  <section class="page-content">
       <div class="row au-stagger">
-        <div class="col-sm-6 col-md-3 flickr-img au-animate" repeat.for="image of images">
+        <input type="text" value.bind="prop" keyup.delegate="prop_change($event)">
+      </div>
+      <div class="row au-stagger">
+        <div class="col-sm-6 col-md-3 flickr-img" repeat.for="image of images">
           <a class="thumbnail">
-            <img src.bind="image.media.m"/>
+            <img src.bind="image.media.m" />
           </a>
         </div>
       </div>

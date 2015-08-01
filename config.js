@@ -1,5 +1,4 @@
 System.config({
-  "defaultJSExtensions": true,
   "transpiler": "babel",
   "babelOptions": {
     "optional": [
@@ -10,13 +9,15 @@ System.config({
   },
   "paths": {
     "*": "dist/*.js",
-    "github:*": "jspm_packages/github/*",
-    "npm:*": "jspm_packages/npm/*"
-  }
+    "github:*": "jspm_packages/github/*.js",
+    "npm:*": "jspm_packages/npm/*.js"
+  },
+  "defaultJSExtensions": true
 });
 
 System.config({
   "map": {
+    "_resources": "_resources",
     "aurelia-animator-css": "github:aurelia/animator-css@0.13.0",
     "aurelia-binding": "github:aurelia/binding@0.8.4",
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.14.1",
@@ -38,7 +39,7 @@ System.config({
     "aurelia-templating-binding": "github:aurelia/templating-binding@0.13.2",
     "aurelia-templating-resources": "github:aurelia/templating-resources@0.13.3",
     "aurelia-templating-router": "github:aurelia/templating-router@0.14.1",
-    "auth/index": "src/auth/index",
+    "auth": "auth",
     "authFilter": "auth/authFilter",
     "babel": "npm:babel-core@5.8.19",
     "babel-runtime": "npm:babel-runtime@5.8.19",

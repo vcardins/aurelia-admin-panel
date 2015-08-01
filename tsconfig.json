@@ -3,9 +3,10 @@
   "compilerOptions": {
     "target": "es5",
     "module": "amd",
-    "declaration": false,
-    "noImplicitAny": false,
+    "declaration": true,
+    "noImplicitAny": true,
     "removeComments": true,
+    "preserveConstEnums": true,
     "noLib": false,
     "emitDecoratorMetadata": true,
     "sourceMap": true,

@@ -11,8 +11,8 @@ export function configure(aurelia: Aurelia) {
     .plugin('aurelia-animator-css')
     .plugin('toastr')    
     .plugin('charlespockert/aurelia-bs-grid')
-    .plugin('./dist/_resources/index')
-    .plugin('./dist/auth/index', (baseConfig)=> { 
+    .plugin('_resources/index')
+    .plugin('auth/index', (baseConfig)=> { 
     	let cfg = baseConfig.configure(config);
       window.appConfig = cfg;   
     });  
