@@ -17,7 +17,6 @@ System.config({
 
 System.config({
   "map": {
-    "_resources": "_resources",
     "aurelia-animator-css": "github:aurelia/animator-css@0.13.0",
     "aurelia-binding": "github:aurelia/binding@0.8.4",
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.14.1",
@@ -39,7 +38,7 @@ System.config({
     "aurelia-templating-binding": "github:aurelia/templating-binding@0.13.2",
     "aurelia-templating-resources": "github:aurelia/templating-resources@0.13.3",
     "aurelia-templating-router": "github:aurelia/templating-router@0.14.1",
-    "auth": "auth",
+    "aurelia-validation": "github:aurelia/validation@0.2.7",
     "authFilter": "auth/authFilter",
     "babel": "npm:babel-core@5.8.19",
     "babel-runtime": "npm:babel-runtime@5.8.19",
@@ -162,6 +161,11 @@ System.config({
       "aurelia-path": "github:aurelia/path@0.8.1",
       "aurelia-task-queue": "github:aurelia/task-queue@0.6.1",
       "core-js": "npm:core-js@0.9.18"
+    },
+    "github:aurelia/validation@0.2.7": {
+      "aurelia-binding": "github:aurelia/binding@0.8.4",
+      "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.9.1",
+      "aurelia-templating": "github:aurelia/templating@0.13.15"
     },
     "github:charlespockert/aurelia-bs-grid@0.0.2": {
       "bootstrap": "github:twbs/bootstrap@3.3.5",
