@@ -1,6 +1,7 @@
 import {Aurelia, LogManager} from "aurelia-framework"
 import config from './authConfig';
 import {ConsoleAppender} from 'aurelia-logging-console';
+import {ValidateCustomAttributeViewStrategy} from 'aurelia-validation';
 
 export function configure(aurelia: Aurelia) {
   
@@ -11,7 +12,9 @@ export function configure(aurelia: Aurelia) {
     .plugin('aurelia-animator-css')
     .plugin('toastr')    
     .plugin('charlespockert/aurelia-bs-grid')
-    .plugin('aurelia-validation')
+    .plugin('aurelia-validation', (config) => { 
+      config.useViewStrategy(ValidateCustomAttributeViewStrategy.TWBootstrapAppendToInput)
+    })
     .plugin('_resources/main')
     .plugin('auth/index', (baseConfig)=> { 
     	let cfg = baseConfig.configure(config);

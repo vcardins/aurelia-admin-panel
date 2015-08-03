@@ -1,5 +1,5 @@
 
-class State {
+export class State {
   abbreviation:string = null;
   name:string = null;  
 }
@@ -20,6 +20,6 @@ export class Contact {
   }
   
   get fullName(){
-    return (this.firstName) ? `${this.firstName} ${this.lastName}` : undefined;
+    return (this.firstName) ? (`${this.firstName}` + (this.lastName ? ' ' + this.lastName : '')) : undefined;
   }
 }

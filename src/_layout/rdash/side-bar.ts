@@ -7,7 +7,7 @@ export class SideBar {
   ENTER:number  = 13;
   searchValue:string;
   
-  @bindable public router = null;
+  @bindable public router:any = null;
   
   constructor(){   	
     this.heading = 'Aurelia';    
@@ -26,7 +26,6 @@ export class SideBar {
     if (e && e.keyCode !== this.ENTER) {
       return true;   
     } 
-    console.log(this.searchValue); 
   }
   
 }

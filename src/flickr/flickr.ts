@@ -4,7 +4,8 @@ import {HttpClient} from 'aurelia-http-client';
 @autoinject
 export class Flickr{
   
-  public images = [];
+  public images:any[];
+  ENTER:number  = 13;
   @bindable prop = 'soccer';
   
   get url() {
@@ -21,11 +22,11 @@ export class Flickr{
     });
   }
   
-  prop_change(e) {  
-    if (e.keyCode === 13) {
-      console.log(e);
+  search(e:KeyboardEvent) {
+    if ((e.type =='keydown' && e.keyCode == this.ENTER) || e.type =='click') {
       this.activate();
-    }
+    } 
+    return true;
   }
   
 }

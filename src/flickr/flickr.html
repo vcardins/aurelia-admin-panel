@@ -1,7 +1,10 @@
 <template>
-  <section class="page-content">
-      <div class="row au-stagger">
-        <input type="text" value.bind="prop" keyup.delegate="prop_change($event)">
+  <section class="page-content flickr">
+      <div class="search-bar">
+          <span class="field">
+            <input type="text" placeholder="Search" name="search" value.bind="prop" keydown.delegate="search($event)" />
+            <a href="" click.delegate="search($event)"><i class="fa fa-search"></i></a> 
+          </span> 
       </div>
       <div class="row au-stagger">
         <div class="col-sm-6 col-md-3 flickr-img" repeat.for="image of images">
