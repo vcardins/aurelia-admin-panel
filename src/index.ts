@@ -11,12 +11,12 @@ export function configure(aurelia: Aurelia) {
     .developmentLogging()
     .plugin('aurelia-animator-css')
     .plugin('toastr')    
-    .plugin('charlespockert/aurelia-bs-grid')
+    //.plugin('charlespockert/aurelia-bs-grid')
     .plugin('aurelia-validation', (config) => { 
       config.useViewStrategy(ValidateCustomAttributeViewStrategy.TWBootstrapAppendToInput)
     })
-    .plugin('_resources/main')
-    .plugin('auth/index', (baseConfig)=> { 
+    .feature('_resources')
+    .feature('auth', (baseConfig)=> { 
     	let cfg = baseConfig.configure(config);
       window.appConfig = cfg;   
     });  

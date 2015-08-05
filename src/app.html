@@ -1,20 +1,20 @@
 <template>
   <!-- default -->
   <!--
-  <require from='./_layout/default/nav-bar'></require>
+  <require from='_layout/default/nav-bar'></require>
   <nav-bar router.bind="router"></nav-bar>
   <div class="page-host">
     <router-view></router-view>
   </div>
   -->
   <!-- rdash -->
- <require from="./loading-indicator"></require>
+ <require from="loading-indicator"></require>
  <loading-indicator loading.bind="router.isNavigating || api.isRequesting"></loading-indicator>
  <div class="hamburg">
    <div id="page-wrapper" class="${sidebarCls} ${authCls}">
-      <require from='./_layout/rdash/side-bar'></require>
+      <require from='_layout/rdash/side-bar'></require>
       <side-bar router.bind="router"></side-bar>
-      <require from='./_layout/rdash/header-bar'></require>
+      <require from='_layout/rdash/header-bar'></require>
       <header-bar router.bind="router" pageHeading.bind="pageHeading"></header-bar>
       <div id="content-wrapper">        
           <router-view></router-view>

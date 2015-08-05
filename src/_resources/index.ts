@@ -1,7 +1,7 @@
 import {ExampleContext} from './converters/example-context'
 
 export function configure(aurelia) {
-  const path = "../converters/";
+  const path = "converters/";
   
   aurelia.container.registerInstance(
     ExampleContext,
