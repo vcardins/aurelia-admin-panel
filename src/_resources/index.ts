@@ -2,6 +2,7 @@ import {ExampleContext} from './converters/example-context'
 
 export function configure(aurelia) {
   const path = "converters/";
+  const pathUtils = "utils/";
   
   aurelia.container.registerInstance(
     ExampleContext,
@@ -15,7 +16,8 @@ export function configure(aurelia) {
       `${path}source`,        
       `${path}column`, 
       `${path}file`, 
-      `${path}object-to-array`
+      `${path}object-to-array`,
+      `${pathUtils}blur-image`
     );  
- 
+
 }

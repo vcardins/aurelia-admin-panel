@@ -41,13 +41,14 @@ System.config({
     "aurelia-templating-router": "github:aurelia/templating-router@0.14.1",
     "aurelia-validation": "github:aurelia/validation@0.2.7",
     "authFilter": "auth/authFilter",
-    "babel": "npm:babel-core@5.8.19",
-    "babel-runtime": "npm:babel-runtime@5.8.19",
+    "babel": "npm:babel-core@5.8.20",
+    "babel-runtime": "npm:babel-runtime@5.8.20",
     "bootstrap": "github:twbs/bootstrap@3.3.5",
     "charlespockert/aurelia-bs-grid": "github:charlespockert/aurelia-bs-grid@0.0.2",
     "commonmark": "npm:commonmark@0.21.0",
     "core-js": "npm:core-js@0.9.18",
     "css": "github:systemjs/plugin-css@0.1.13",
+    "fetch": "github:github/fetch@0.9.0",
     "font-awesome": "npm:font-awesome@4.4.0",
     "google-maps-api": "npm:google-maps-api@1.0.2",
     "jquery": "github:components/jquery@2.1.4",
@@ -192,7 +193,7 @@ System.config({
       "aurelia-templating": "github:aurelia/templating@0.13.16"
     },
     "github:jspm/nodelibs-buffer@0.1.0": {
-      "buffer": "npm:buffer@3.3.1"
+      "buffer": "npm:buffer@3.3.2"
     },
     "github:jspm/nodelibs-path@0.1.0": {
       "path-browserify": "npm:path-browserify@0.0.0"
@@ -219,10 +220,10 @@ System.config({
     "npm:asap@1.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
-    "npm:babel-runtime@5.8.19": {
+    "npm:babel-runtime@5.8.20": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
-    "npm:buffer@3.3.1": {
+    "npm:buffer@3.3.2": {
       "base64-js": "npm:base64-js@0.0.8",
       "ieee754": "npm:ieee754@1.1.6",
       "is-array": "npm:is-array@1.0.1"
