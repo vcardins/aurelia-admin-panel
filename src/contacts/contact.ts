@@ -1,10 +1,11 @@
+import {BaseModel} from '../_resources/utils/base-model';
 
 export class State {
   abbreviation:string = null;
   name:string = null;  
 }
                 
-export class Contact {
+export class Contact extends BaseModel{
 	id:string = null;  
   firstName:string = null;
   lastName:string = null;
@@ -16,6 +17,7 @@ export class Contact {
   phoneNumber:string = null;
   
   constructor(model?:Contact) {
+    super();
     if (model) { Object.assign(this, model);  }
   }
   

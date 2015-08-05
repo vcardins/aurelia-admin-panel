@@ -24,6 +24,8 @@ export class ContactDetails {
         .ensure('contact.firstName').isNotEmpty().hasMinLength(3).hasMaxLength(10)
         .ensure('contact.lastName').isNotEmpty().hasMinLength(3).hasMaxLength(10)
         .ensure('contact.email').isNotEmpty().isEmail();    
+    
+    this.contact.validation = this.validation;    
   }
 
   activate(params:any, config:any):any { //params, config
@@ -35,6 +37,8 @@ export class ContactDetails {
       this.contact = this.originalContact = new Contact(); 
       return true; 
     }
+    this.contact.setEditMode(true);
+    
     return this.api.getById(params.id).then(contact => {
       this.contact = this.originalContact = new Contact(contact);
       config.navModel.setTitle(this.contact.firstName);
@@ -43,11 +47,12 @@ export class ContactDetails {
   } 
 
   save(){
-    this.api.save(this.contact).then(contact => {
-      this.contact = contact;
-      //this.originalContact = JSON.parse(JSON.stringify(contact));
-      this.ea.publish(new ContactUpdated(this.contact));
-    });
+    this.contact.revertChanges();
+    // this.api.save(this.contact).then(contact => {
+    //   this.contact = contact;
+    //   //this.originalContact = JSON.parse(JSON.stringify(contact));
+    //   this.ea.publish(new ContactUpdated(this.contact));
+    // });
   }
 
   canDeactivate(){

@@ -6,6 +6,7 @@ export function configure(aurelia) {
   aurelia.container.registerInstance(
     ExampleContext,
     new ExampleContext('./converters'));
+    
     aurelia.globalizeResources(
       `${path}date-format`, 
       `${path}number-format`, 
@@ -16,4 +17,5 @@ export function configure(aurelia) {
       `${path}file`, 
       `${path}object-to-array`
     );  
+ 
 }
