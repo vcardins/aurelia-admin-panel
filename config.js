@@ -9,7 +9,7 @@ System.config({
     ]
   },
   "paths": {
-    "*": "dist/*.js",
+    "*": "dist/*",
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   }
@@ -28,7 +28,7 @@ System.config({
     "aurelia-history-browser": "github:aurelia/history-browser@0.6.2",
     "aurelia-http-client": "github:aurelia/http-client@0.10.2",
     "aurelia-loader": "github:aurelia/loader@0.8.3",
-    "aurelia-loader-default": "github:aurelia/loader-default@0.9.2",
+    "aurelia-loader-default": "github:aurelia/loader-default@0.9.3",
     "aurelia-logging": "github:aurelia/logging@0.6.2",
     "aurelia-metadata": "github:aurelia/metadata@0.7.2",
     "aurelia-path": "github:aurelia/path@0.8.1",
@@ -71,7 +71,7 @@ System.config({
       "aurelia-framework": "github:aurelia/framework@0.14.0",
       "aurelia-history": "github:aurelia/history@0.6.1",
       "aurelia-history-browser": "github:aurelia/history-browser@0.6.2",
-      "aurelia-loader-default": "github:aurelia/loader-default@0.9.2",
+      "aurelia-loader-default": "github:aurelia/loader-default@0.9.3",
       "aurelia-logging-console": "github:aurelia/logging-console@0.6.1",
       "aurelia-router": "github:aurelia/router@0.10.4",
       "aurelia-templating": "github:aurelia/templating@0.13.16",
@@ -121,7 +121,7 @@ System.config({
       "aurelia-path": "github:aurelia/path@0.8.1",
       "core-js": "npm:core-js@0.9.18"
     },
-    "github:aurelia/loader-default@0.9.2": {
+    "github:aurelia/loader-default@0.9.3": {
       "aurelia-loader": "github:aurelia/loader@0.8.3",
       "aurelia-metadata": "github:aurelia/metadata@0.7.2"
     },
@@ -189,11 +189,11 @@ System.config({
     },
     "github:gooy/aurelia-compiler@0.0.5": {
       "aurelia-loader": "github:aurelia/loader@0.8.3",
-      "aurelia-loader-default": "github:aurelia/loader-default@0.9.2",
+      "aurelia-loader-default": "github:aurelia/loader-default@0.9.3",
       "aurelia-templating": "github:aurelia/templating@0.13.16"
     },
     "github:jspm/nodelibs-buffer@0.1.0": {
-      "buffer": "npm:buffer@3.3.2"
+      "buffer": "npm:buffer@3.4.0"
     },
     "github:jspm/nodelibs-path@0.1.0": {
       "path-browserify": "npm:path-browserify@0.0.0"
@@ -223,7 +223,7 @@ System.config({
     "npm:babel-runtime@5.8.20": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
-    "npm:buffer@3.3.2": {
+    "npm:buffer@3.4.0": {
       "base64-js": "npm:base64-js@0.0.8",
       "ieee754": "npm:ieee754@1.1.6",
       "is-array": "npm:is-array@1.0.1"

@@ -23,7 +23,7 @@ export default class {
 				{ route: 'maps',           name: 'maps',         moduleId: './maps/maps',                 nav: true, title:'Maps', auth:true, icon:'map-o', description:'Google Maps' },
 				{ route: 'child-router',   name: 'child-router', moduleId: './child-router/child-router', nav: true, title:'Child Router', auth:true, icon:'cubes', description:'' },
 				{ route: 'links',   	   name: 'links', 		 moduleId: './links/links', 			  nav: true, title:'Links', auth:true, icon:'chain', description:'' },
-				{ route: 'contacts',  	   name: 'contacts', 	 moduleId: './contacts/contacts', 	      nav: true, title:'Contacts', auth:true, icon:'users', description:'' },
+				{ route: 'contacts',  	   name: 'contacts', 	 moduleId: 'contacts/contacts', 	      nav: true, title:'Contacts', auth:true, icon:'users', description:'' },
 				{ route: 'converters',     name: 'converters', 	 moduleId: './converters/converters', 	  nav: true, title:'Converters', auth:true, icon:'users', description:'' },
 				{ route: 'users',          name: 'users',        moduleId: './users/users',        		  nav: true, title:'Github Users', auth:true, icon:'users', description:''  },				
 				{ route: 'signup',         name: 'signup', 		 moduleId: './account/signup',       	  nav: false, title:'Signup', icon:'', description:'pencil-square' },
