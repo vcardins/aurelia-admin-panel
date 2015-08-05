@@ -16,7 +16,7 @@ export class File {
   @bindable src;
   @bindable view;
   @bindable model;
-  example;
+  example:any;
   base;
   githubBase;
   info = null;
@@ -34,10 +34,10 @@ export class File {
       name: src,
       moduleId: this.base + '/' + src.substr(0, src.indexOf('.')),
       language: getLanguage(src),
-      url: '/dist/' + this.base + '/' + src,
+      url: 'dist/' + this.base + '/' + src,
       repoUrl: this.githubBase + '/dist/' + this.base + '/' + src
     };
-
+    
     if (this.view === 'true')
       example.view = this.info;
 

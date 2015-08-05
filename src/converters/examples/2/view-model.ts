@@ -1,4 +1,6 @@
 export class NetWorth {
+  currentDate:Date;
+  netWorth:Number;
   constructor() {
     this.update();
     setInterval(() => this.update(), 1000);

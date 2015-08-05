@@ -1,7 +1,7 @@
 import {HttpClient} from 'aurelia-http-client';
 
 export class AureliaRepositories {
-  repos = [];
+  repos:string[] = [];
 
   activate() {
     return new HttpClient()

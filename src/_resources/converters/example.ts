@@ -3,18 +3,18 @@ import {ExampleContext} from './example-context';
 
 @autoinject
 export class Example {
-  @bindable base;
+  @bindable base:any = null;
   context:ExampleContext;
-  model = null;
-  view = null;
+  model:any = null;
+  view:any = null;
   result = false;
 
   constructor(context:ExampleContext) {
     this.context = context;
   }
 
-  baseChanged(newValue) {
+  baseChanged(newValue:any) {
     this.context.base = newValue;
-    this.context.example = this;
+    this.context.example = this;   
   }
 }

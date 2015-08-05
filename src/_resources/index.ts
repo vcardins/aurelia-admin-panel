@@ -5,14 +5,14 @@ export function configure(aurelia) {
   
   aurelia.container.registerInstance(
     ExampleContext,
-    new ExampleContext('./converters'));
+    new ExampleContext('.'));
     
     aurelia.globalizeResources(
+      `${path}example`,
       `${path}date-format`, 
       `${path}number-format`, 
       `${path}markdown`, 
-      `${path}source`, 
-      `${path}example`, 
+      `${path}source`,        
       `${path}column`, 
       `${path}file`, 
       `${path}object-to-array`
