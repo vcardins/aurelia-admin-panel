@@ -8,7 +8,6 @@ export class Users{
   users:any[] = [];
 
   constructor(public http:HttpClient){
-    console.log(http);
     http.configure(config => {
       config
         .useStandardConfiguration()

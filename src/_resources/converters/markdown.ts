@@ -5,11 +5,11 @@ import {isExternalLink, titleToSlug} from '../util';
 var reader = new commonmark.Parser(),
     writer = new commonmark.HtmlRenderer();
 
-function getHtml(markdown) {
+function getHtml(markdown:Markdown) {
   return writer.render(reader.parse(markdown));
 }
 
-function fixIndent(markdown) {
+function fixIndent(markdown:Markdown) {
   /*
   This is intended to remove indentation that is not really part of
   the markdown, to preserve the ability to indent the markup properly.
@@ -37,11 +37,11 @@ function fixIndent(markdown) {
   return markdown;
 }
 
-function fixBlockQuotes(markdown) {
+function fixBlockQuotes(markdown:Markdown) {
   return markdown.replace(/^(\s*)&gt;/gim, (match, p1) => p1 + '>');
 }
 
-function updateAnchorTargets(element) {
+function updateAnchorTargets(element:Element) {
   // external links need target="_blank"
   var anchors = element.getElementsByTagName('a'),
       i, ii;
@@ -52,7 +52,7 @@ function updateAnchorTargets(element) {
   }
 }
 
-function makeHeadingsLinkable(element) {
+function makeHeadingsLinkable(element:Element) {
   var headings = element.querySelectorAll('h1,h2,h3,h4,h5,h6'),
       i, ii, h, title, slug;
   for(i = 0, ii = headings.length; i < ii; i++) {
@@ -64,7 +64,7 @@ function makeHeadingsLinkable(element) {
   }
 }
 
-function applySyntaxHighlighting(element) {
+function applySyntaxHighlighting(element:Element) {
   var codes = element.getElementsByTagName('code'),
       i, ii;
   for(i = 0, ii = codes.length; i < ii; i++) {

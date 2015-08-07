@@ -14,12 +14,12 @@ export function configure(aurelia: Aurelia) {
     //.developmentLogging()
     .plugin('aurelia-animator-css')
     .plugin('toastr')    
-    //.plugin('charlespockert/aurelia-bs-grid')
+    .plugin('charlespockert/aurelia-bs-grid')
     .plugin('aurelia-validation', (config) => { 
       config.useViewStrategy(ValidateCustomAttributeViewStrategy.TWBootstrapAppendToInput)
     })
     .feature('_resources')
-    .feature('auth', (baseConfig)=> { 
+    .feature('auth', (baseConfig:any)=> { 
     	let cfg = baseConfig.configure(config);
       window.appConfig = cfg;   
     });  

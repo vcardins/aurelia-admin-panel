@@ -41,10 +41,10 @@ System.config({
     "aurelia-templating-router": "github:aurelia/templating-router@0.14.1",
     "aurelia-validation": "github:aurelia/validation@0.2.7",
     "authFilter": "auth/authFilter",
-    "babel": "npm:babel-core@5.8.20",
+    "babel": "npm:babel-core@5.8.21",
     "babel-runtime": "npm:babel-runtime@5.8.20",
     "bootstrap": "github:twbs/bootstrap@3.3.5",
-    "charlespockert/aurelia-bs-grid": "github:charlespockert/aurelia-bs-grid@0.0.2",
+      "charlespockert/aurelia-bs-grid": "github:charlespockert/aurelia-bs-grid@0.0.2",
     "commonmark": "npm:commonmark@0.21.0",
     "core-js": "npm:core-js@0.9.18",
     "css": "github:systemjs/plugin-css@0.1.13",
@@ -193,7 +193,7 @@ System.config({
       "aurelia-templating": "github:aurelia/templating@0.13.16"
     },
     "github:jspm/nodelibs-buffer@0.1.0": {
-      "buffer": "npm:buffer@3.4.0"
+      "buffer": "npm:buffer@3.4.1"
     },
     "github:jspm/nodelibs-path@0.1.0": {
       "path-browserify": "npm:path-browserify@0.0.0"
@@ -223,7 +223,7 @@ System.config({
     "npm:babel-runtime@5.8.20": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
-    "npm:buffer@3.4.0": {
+    "npm:buffer@3.4.1": {
       "base64-js": "npm:base64-js@0.0.8",
       "ieee754": "npm:ieee754@1.1.6",
       "is-array": "npm:is-array@1.0.1"
