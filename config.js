@@ -44,7 +44,7 @@ System.config({
     "babel": "npm:babel-core@5.8.21",
     "babel-runtime": "npm:babel-runtime@5.8.20",
     "bootstrap": "github:twbs/bootstrap@3.3.5",
-      "charlespockert/aurelia-bs-grid": "github:charlespockert/aurelia-bs-grid@0.0.2",
+    "charlespockert/aurelia-bs-grid": "github:charlespockert/aurelia-bs-grid@0.0.2",
     "commonmark": "npm:commonmark@0.21.0",
     "core-js": "npm:core-js@0.9.18",
     "css": "github:systemjs/plugin-css@0.1.13",
@@ -68,7 +68,7 @@ System.config({
     },
     "github:aurelia/bootstrapper@0.15.0": {
       "aurelia-event-aggregator": "github:aurelia/event-aggregator@0.6.2",
-      "aurelia-framework": "github:aurelia/framework@0.14.0",
+      "aurelia-framework": "github:aurelia/framework@0.14.1",
       "aurelia-history": "github:aurelia/history@0.6.1",
       "aurelia-history-browser": "github:aurelia/history-browser@0.6.2",
       "aurelia-loader-default": "github:aurelia/loader-default@0.9.3",
@@ -102,7 +102,7 @@ System.config({
       "aurelia-templating": "github:aurelia/templating@0.13.16",
       "core-js": "npm:core-js@0.9.18"
     },
-    "github:aurelia/framework@0.14.0": {
+    "github:aurelia/framework@0.14.1": {
       "aurelia-binding": "github:aurelia/binding@0.8.5",
       "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.9.1",
       "aurelia-loader": "github:aurelia/loader@0.8.3",
