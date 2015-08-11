@@ -41,7 +41,7 @@ System.config({
     "aurelia-templating-router": "github:aurelia/templating-router@0.14.1",
     "aurelia-validation": "github:aurelia/validation@0.2.7",
     "authFilter": "auth/authFilter",
-    "babel": "npm:babel-core@5.8.21",
+    "babel": "npm:babel-core@5.8.22",
     "babel-runtime": "npm:babel-runtime@5.8.20",
     "bootstrap": "github:twbs/bootstrap@3.3.5",
     "charlespockert/aurelia-bs-grid": "github:charlespockert/aurelia-bs-grid@0.0.2",
@@ -56,7 +56,7 @@ System.config({
     "nprogress": "github:rstacruz/nprogress@0.2.0",
     "numeral": "npm:numeral@1.5.3",
     "smajl/bootstrap": "github:smajl/bootstrap@master",
-    "toastr": "github:CodeSeven/toastr@2.1.1",
+    "toastr": "github:CodeSeven/toastr@2.1.2",
     "github:aurelia/animator-css@0.13.0": {
       "aurelia-templating": "github:aurelia/templating@0.13.16"
     },
